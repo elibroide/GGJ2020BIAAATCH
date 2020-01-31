@@ -9,8 +9,6 @@ public class BodyPartFactory : MonoBehaviour
     
     public Transform itemsParent;
     
-    public string[] names;
-
     [ReadOnly]
     public string[] names = new string[]
     {

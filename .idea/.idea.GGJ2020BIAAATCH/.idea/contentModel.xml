@@ -449,6 +449,10 @@
           <e p="BodyPartFactory.cs" t="Include" />
           <e p="BodyPartPickup.cs" t="Include" />
           <e p="BodyPartType.cs" t="Include" />
+          <e p="General" t="Include">
+            <e p="CameraController.cs" t="Include" />
+            <e p="ResourceManager.cs" t="Include" />
+          </e>
           <e p="Grave.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="BodyPartController.cs" t="Include" />
@@ -461,7 +465,6 @@
             <e p="PlayerStateWalking.cs" t="Include" />
           </e>
           <e p="ReadOnly.cs" t="Include" />
-          <e p="ResourceManager.cs" t="Include" />
         </e>
       </e>
       <e p="GGJ2020BIAAATCH.sln" t="IncludeFlat" />
