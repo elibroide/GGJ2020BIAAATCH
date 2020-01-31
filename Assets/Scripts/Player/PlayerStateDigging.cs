@@ -2,43 +2,70 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerStateDigging : IPlayerState
+    public class PlayerStateDigging : MonoBehaviour, IPlayerState
     {
-        public int clicks = 0;
-        public bool isLeft;
+        public PlayerController controller;
+        public Grave touchingGrave;
+        public float moveAmount = 5.0f;
         
-        private PlayerController _controller;
+        [ReadOnly] public int clicks = 0;
+        [ReadOnly] public bool isLeft;
         
-        public PlayerStateDigging(PlayerController controller)
+        private void Awake()
         {
-            _controller = controller;
+            GetComponentInParent<PlayerController>();
         }
         
         public void EnterState(IPlayerState previousState)
         {
+            // Initialize
+            clicks = 0;
+            isLeft = false;
+            
             // Do animation of enter state
+            controller.sprite.color = Color.red;
+
+            // Check collision with an area of dig
+            if (controller.digDetector.touchingDig)
+            {
+                touchingGrave = controller.digDetector.touchingDig.parent;
+            }
         }
 
         public void LeaveState(IPlayerState newState)
         {
             // Leave animation of dig state
+            controller.sprite.transform.localPosition = Vector3.zero;
         }
 
         public void Tick()
         {
+            var direction = Vector3.zero;
+            var isHit = false;
             if (clicks == 0 || isLeft)
             {
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    isLeft = !isLeft;
-                }    
+                isHit = Input.GetKeyDown(KeyCode.A);
+                direction = Vector3.left;
             }
             if (clicks == 0 || !isLeft)
             {
-                if (Input.GetKeyDown(KeyCode.D))
+                isHit = Input.GetKeyDown(KeyCode.D);
+                direction = Vector3.right;
+            }
+
+            if (isHit)
+            {
+                clicks++;
+                isLeft = !isLeft;
+                if (touchingGrave != null)
                 {
-                    isLeft = !isLeft;
-                }    
+                    touchingGrave.TakeHit(1);
+                    if (touchingGrave.isDead)
+                    {
+                        controller.ChangeState(controller.stateWalking);
+                    } 
+                }
+                controller.sprite.transform.localPosition = direction * moveAmount;
             }
         }
     }

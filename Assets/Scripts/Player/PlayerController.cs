@@ -6,22 +6,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject holePrefab; 
-        
+    public GameObject holePrefab;
+
+    public PlayerDigDetector digDetector;
     public IPlayerState playerState;
     public BodyPartsController bodyPartsController;
-    public PlayerMovementController movementController;
     public SpriteRenderer sprite;
+
+    [Header("States")]
+    public PlayerStateDigging stateDigging;
+    public PlayerStateWalking stateWalking;
 
     public IPlayerState state;
 
-    // Start is called before the first frame update
     void Start()
     {
-        ChangeState(new PlayerStateWalking(this));
+        state = stateWalking;
     }
 
-    // Update is called once per frame
     void Update()
     {
         state.Tick();
@@ -32,10 +34,5 @@ public class PlayerController : MonoBehaviour
         state.LeaveState(newState);
         newState.EnterState(state);
         state = newState;
-    }
-
-    private void CheckAttack()
-    {
-        DOTween.Sequence();
     }
 }

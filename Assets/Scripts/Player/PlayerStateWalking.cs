@@ -1,19 +1,17 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player
 {
-    public class PlayerStateWalking : IPlayerState
+    public class PlayerStateWalking : MonoBehaviour, IPlayerState
     {
-        private PlayerController _controller;
-        
-        public PlayerStateWalking(PlayerController controller)
-        {
-            _controller = controller;
-        }
-        
+        public PlayerController controller;
+        public PlayerMovementController movementController;
+
         public void EnterState(IPlayerState previousState)
         {
-            
+            controller.sprite.color = Color.white;
         }
 
         public void LeaveState(IPlayerState newState)
@@ -25,7 +23,7 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // Perform attack
-                _controller.ChangeState(new PlayerStateDigging(_controller));
+                controller.ChangeState(controller.stateDigging);
                 return;
             }
             var direction = Vector2.zero;
@@ -45,7 +43,7 @@ namespace Player
             {
                 direction += Vector2.right;
             }
-            _controller.movementController.SetDirection(direction);
+            movementController.SetDirection(direction);
         }
     }
 }
