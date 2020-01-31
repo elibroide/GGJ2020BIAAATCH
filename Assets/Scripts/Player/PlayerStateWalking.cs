@@ -58,6 +58,7 @@ namespace Player
 
             if (controller.detector.touchingDig != null)
             {
+                movementController.Stop();
                 controller.StartDigging(controller.detector.touchingDig);
                 return;
             }
