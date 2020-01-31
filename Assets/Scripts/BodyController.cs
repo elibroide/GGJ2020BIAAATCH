@@ -18,7 +18,6 @@ public class BodyController : MonoBehaviour
         {
             DropPartFromBody(part.type);
         }
-        // TODO: Check if part exists and drop it
         var bodyPartInstance = Instantiate(part.bodyPartController, transform, false);
         bodyPartInstance.data = part.CreateData(ownerName);
         body.Add(part.type, bodyPartInstance.GetComponent<BodyPartController>());
