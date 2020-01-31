@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Player;
 using UnityEngine;
-    
+using Random = System.Random;
+
 
 public class BodyController : MonoBehaviour
 {
@@ -70,7 +72,12 @@ public class BodyController : MonoBehaviour
     {
         if (body.ContainsKey(type))
         {
+            body[type].Rot();
             body[type].transform.SetParent(null);
+            Quaternion randomRotation = Quaternion.Euler(new Vector3(0, 0, UnityEngine.Random.Range(0, 360)));
+
+            var sequence = DOTween.Sequence();
+            sequence.Insert(0.5f, body[type].transform.DOJump(transform.position +  randomRotation * Vector3.up * 2f, 0.5f, 1, 0.5f));
             body.Remove(type);
         }
     }

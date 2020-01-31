@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
-  m_Name: BodyPart 3
+  m_Name: NormalHandRight
   m_EditorClassIdentifier: 
-  health: 0
+  group: normal
+  health: 100
   decompositionRate: 0
-  ownerName: 
-  type: 0
-  prefab: {fileID: 0}
+  type: 2
+  bodyPartController: {fileID: 1361188216501162642, guid: 69fe7c4be5c8d423e883dccbd6c251dd,
+    type: 3}
+  bodyPartPickup: {fileID: 9168670871253717233, guid: 43175b209658d493c9c40ba0a85ca48e,
+    type: 3}
