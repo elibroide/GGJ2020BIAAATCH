@@ -41,7 +41,7 @@ namespace Player
 
         public override void Tick()
         {
-            controller.bodyPartsController.Tick();
+            controller.bodyController.Tick();
             var direction = Vector3.zero;
             var isHit = false;
             if (clicks == 0 || isLeft)

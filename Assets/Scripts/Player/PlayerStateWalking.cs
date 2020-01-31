@@ -20,7 +20,7 @@ namespace Player
 
         public override void Tick()
         {
-            controller.bodyPartsController.Tick();
+            controller.bodyController.Tick();
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // Perform attack

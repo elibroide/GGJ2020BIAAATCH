@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
     public PlayerState playerState;
-    public BodyPartsController bodyPartsController;
+    [FormerlySerializedAs("bodyPartsController")] public BodyController bodyController;
     public SpriteRenderer sprite;
     public Rigidbody2D rigidbody;
 
@@ -21,6 +22,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         state = stateWalking;
+
+        var factory = FindObjectOfType<BodyPartFactory>();
+        var group = factory.GetBodyPartOfGroup("normal");
+        foreach (var item in group)
+        {
+            bodyController.AddPart(item, "Eli");
+        }
     }
 
     void Update()
