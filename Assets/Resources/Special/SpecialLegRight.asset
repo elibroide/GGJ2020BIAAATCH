@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SpecialLegRight
   m_EditorClassIdentifier: 
   group: special
-  health: 50
-  decompositionRate: 10
+  health: 100
+  decompositionRate: 1
   type: 4
   bodyPartController: {fileID: 8740355842999953155, guid: bc9328792fe0942578a9ef9aadc1951e,
     type: 3}

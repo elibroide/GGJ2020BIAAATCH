@@ -459,7 +459,8 @@
             <e p="GuiBodyPart.cs" t="Include" />
             <e p="GUIController.cs" t="Include" />
           </e>
-          <e p="InFrontOf.cs" t="Include" />
+          <e p="ItemOfLayers.cs" t="Include" />
+          <e p="OrderOfLayers.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="BodyPartController.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />

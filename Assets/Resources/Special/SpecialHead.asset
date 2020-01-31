@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SpecialHead
   m_EditorClassIdentifier: 
   group: special
-  health: 50
-  decompositionRate: 10
+  health: 100
+  decompositionRate: 1
   type: 0
   bodyPartController: {fileID: 1338163180149082746, guid: a77121aaa15bb44da8481f8ab41dc9ff,
     type: 3}

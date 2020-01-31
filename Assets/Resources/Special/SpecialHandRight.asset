@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SpecialHandRight
   m_EditorClassIdentifier: 
   group: special
-  health: 50
-  decompositionRate: 10
+  health: 100
+  decompositionRate: 1
   type: 2
   bodyPartController: {fileID: 1361188216501162642, guid: 8f78efdecf10545d2bad334d37bc9276,
     type: 3}

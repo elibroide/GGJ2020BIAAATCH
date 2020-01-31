@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   group: normal
   health: 100
-  decompositionRate: 10
+  decompositionRate: 1
   type: 2
   bodyPartController: {fileID: 1361188216501162642, guid: 69fe7c4be5c8d423e883dccbd6c251dd,
     type: 3}
