@@ -38,6 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ground
+    uniqueID: 734924509
+    locked: 0
+  - name: ground overlay
+    uniqueID: 2940607705
+    locked: 0
+  - name: paths
+    uniqueID: 1642588027
+    locked: 0
+  - name: objects
+    uniqueID: 1131545057
+    locked: 0
+  - name: biuldings
+    uniqueID: 2909423609
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
