@@ -9,7 +9,7 @@ public class ItemOfLayers : MonoBehaviour
 
     void Awake()
     {
-        parent = GetComponentInParent<OrderOfLayers>();
+        parent = FindObjectOfType<OrderOfLayers>();
         parent.list.Add(this);
 
         if (isAuto)

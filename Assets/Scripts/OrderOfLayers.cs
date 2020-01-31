@@ -10,11 +10,18 @@ public class OrderOfLayers : MonoBehaviour
     void Update()
     {
         list.Sort((t1, t2) => t2.transform.position.y < t1.transform.position.y ? -1 : 1);
-        for (var i = 0; i < transform.childCount; i++)
+        var myorder = 0;
+        for (var i = 0; i < list.Count; i++)
         {
-            foreach (var sprite in list[i].sprites)
+            var group = list[i].sprites.GroupBy(sprite => sprite.sortingOrder);
+            foreach (var spriteGroup in group)
             {
-                sprite.sortingOrder = i;
+                foreach (var sprite in spriteGroup)
+                {
+                    sprite.sortingOrder = myorder;
+                }
+
+                myorder++;
             }
         }
     }

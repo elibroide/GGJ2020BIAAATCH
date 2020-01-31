@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3778058596964339301}
   - component: {fileID: 8740355842999953155}
   m_Layer: 0
-  m_Name: NormalLegLeft 1
+  m_Name: NormalLegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0b36af7d7c4971858672d6fcce722a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part: {fileID: 0}
+  data:
+    health: 0
+    ownerName: 
+    type: 0
+    parent: {fileID: 0}
 --- !u!1 &8466293471170899018
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
