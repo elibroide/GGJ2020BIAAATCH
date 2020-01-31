@@ -6,17 +6,17 @@ using UnityEngine;
 
 public class BodyPartsController : MonoBehaviour
 {
-    Dictionary<BodyPartType, BodyPart> body = new Dictionary<BodyPartType, BodyPart>();
-    Action<List<BodyPart>> onDropParts;
+    Dictionary<BodyPartType, BodyPartController> body = new Dictionary<BodyPartType, BodyPartController>();
+    Action<List<BodyPartController>> onDropParts;
 
     // Start is called before the first frame update
     void Start()
     {
-        body[BodyPartType.Head] = new BodyPart(BodyPartType.Head,1, "head");
-        body[BodyPartType.HandRight]= new BodyPart(BodyPartType.HandRight, 2,"hr");
-        body[BodyPartType.HandLeft] = new BodyPart(BodyPartType.HandLeft, 3, "hl");
-        body[BodyPartType.LegLeft] = new BodyPart(BodyPartType.LegLeft, 2, "ll");
-        body[BodyPartType.LegRight] = new BodyPart(BodyPartType.LegRight, 3, "lr");
+        body[BodyPartType.Head] = new BodyPartController(BodyPartType.Head,1, "head");
+        body[BodyPartType.HandRight]= new BodyPartController(BodyPartType.HandRight, 2,"hr");
+        body[BodyPartType.HandLeft] = new BodyPartController(BodyPartType.HandLeft, 3, "hl");
+        body[BodyPartType.LegLeft] = new BodyPartController(BodyPartType.LegLeft, 2, "ll");
+        body[BodyPartType.LegRight] = new BodyPartController(BodyPartType.LegRight, 3, "lr");
     }
 
     public void Tick()
@@ -27,9 +27,9 @@ public class BodyPartsController : MonoBehaviour
         
         List<BodyPartType> deadParts = new List<BodyPartType>();
 
-        foreach (KeyValuePair<BodyPartType, BodyPart>  entry in body)
+        foreach (KeyValuePair<BodyPartType, BodyPartController>  entry in body)
         {
-            BodyPart part = entry.Value;
+            BodyPartController part = entry.Value;
             if (part != null)
             {
                 part.Decompose(delta);
@@ -45,7 +45,7 @@ public class BodyPartsController : MonoBehaviour
             }
             else
             {
-                List<BodyPart> bodiesToDrop = new List<BodyPart>();
+                List<BodyPartController> bodiesToDrop = new List<BodyPartController>();
                 //throw dead parts
                 foreach(BodyPartType partType in deadParts)
                 {
