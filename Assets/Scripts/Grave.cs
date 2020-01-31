@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Grave : MonoBehaviour
 {
 
     public float health = 2;
-       // Start is called before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
         
@@ -16,6 +17,7 @@ public class Grave : MonoBehaviour
     public void TakeHit(float damage)
     {
         health -= damage;
+        
         if (health <= 0) Kill();
     }
 
@@ -23,7 +25,7 @@ public class Grave : MonoBehaviour
     {
         Debug.Log("DEAD");
         Destroy(gameObject);
-        GameObject a = Resources.Load("grave") as GameObject;
+        GameObject a = ResourceManager.GetGameObject("grave");
         a.name = Time.time.ToString();
         Instantiate(a);
 
