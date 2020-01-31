@@ -24,7 +24,7 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // Perform attack
-                controller.ChangeState(controller.stateDigging);
+                CheckAction();
                 return;
             }
             var direction = Vector2.zero;
@@ -45,6 +45,24 @@ namespace Player
                 direction += Vector2.right;
             }
             movementController.SetDirection(direction);
+        }
+
+        private void CheckAction()
+        {
+            if (controller.detector.pickup != null)
+            {
+                // Pick that sh#@@! up
+                controller.PickUp(controller.detector.pickup);
+                return;
+            }
+
+            if (controller.detector.touchingDig != null)
+            {
+                controller.StartDigging(controller.detector.touchingDig);
+                return;
+            }
+            
+            // Create a hole and start digging it?
         }
     }
 }

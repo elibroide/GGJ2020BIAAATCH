@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
   m_Name: NormalLegLeft
   m_EditorClassIdentifier: 
-  group: 
-  health: 0
-  decompositionRate: 0
-  type: 0
-  bodyPartController: {fileID: 0}
+  group: normal
+  health: 100
+  decompositionRate: 10
+  type: 3
+  bodyPartController: {fileID: 5019332501022291790, guid: ae27fbfbcf6574a5d86c4c1c6120276a,
+    type: 3}
+  bodyPartPickup: {fileID: 2247054867622231160, guid: 57b9f0717f0b54774b939b8475c9ae38,
+    type: 3}

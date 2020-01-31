@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
   m_Name: NormalHead
   m_EditorClassIdentifier: 
-  health: 0
-  decompositionRate: 0
-  ownerName: 
+  group: normal
+  health: 100
+  decompositionRate: 10
   type: 0
-  prefab: {fileID: 0}
+  bodyPartController: {fileID: 1338163180149082746, guid: d55f4f80ff5f543b2aa59bdec5b46f07,
+    type: 3}
+  bodyPartPickup: {fileID: 2807619082410858887, guid: e1bd6d577717c477088dc0a9103178b5,
+    type: 3}

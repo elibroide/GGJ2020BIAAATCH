@@ -7,10 +7,12 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerState playerState;
+    public PlayerDigDetector detector;
     [FormerlySerializedAs("bodyPartsController")] public BodyController bodyController;
     public SpriteRenderer sprite;
     public Rigidbody2D rigidbody;
+    
+    [Header("States")] public AreaOfDig digging; 
 
     [Header("States")]
     public PlayerState stateDigging;
@@ -41,5 +43,23 @@ public class PlayerController : MonoBehaviour
         state.LeaveState(newState);
         newState.EnterState(state);
         state = newState;
+    }
+
+    public void StartDigging(AreaOfDig whatToDig)
+    {
+        digging = whatToDig; 
+        ChangeState(stateDigging);
+    }
+
+    public void DoneDigging()
+    {
+        digging = null; 
+        ChangeState(stateWalking);
+    }
+
+    public void PickUp(BodyPartPickup detectorPickup)
+    {
+        detectorPickup.PickedUp();
+        bodyController.AddPart(detectorPickup.data.parent, detectorPickup.data.ownerName);
     }
 }

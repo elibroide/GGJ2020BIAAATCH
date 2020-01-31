@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
+  m_Name: SpecialLegLeft
+  m_EditorClassIdentifier: 
+  group: special
+  health: 50
+  decompositionRate: 10
+  type: 3
+  bodyPartController: {fileID: 5019332501022291790, guid: 60d0b57dc4ea74a71b1c14c2175926a6,
+    type: 3}
+  bodyPartPickup: {fileID: 2247054867622231160, guid: 18f51996ddd0b49e4963ee09d26fa39f,
+    type: 3}

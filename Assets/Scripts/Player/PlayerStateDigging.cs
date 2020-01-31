@@ -5,8 +5,6 @@ namespace Player
     public class PlayerStateDigging : PlayerState
     {
         public PlayerController controller;
-        public PlayerDigDetector detector;
-        public Grave touchingGrave;
         public float moveAmount = 5.0f;
         
         [ReadOnly] public int clicks = 0;
@@ -27,11 +25,6 @@ namespace Player
             // Do animation of enter state
             controller.sprite.color = Color.red;
 
-            // Check collision with an area of dig
-            if (detector.touchingDig)
-            {
-                touchingGrave = detector.touchingDig.parent;
-            }
         }
 
         public override void LeaveState(PlayerState newState)
@@ -61,12 +54,12 @@ namespace Player
             {
                 clicks++;
                 isLeft = !isLeft;
-                if (touchingGrave != null)
+                if (controller.digging.parent != null)
                 {
-                    touchingGrave.TakeHit(1);
-                    if (touchingGrave.isDead)
+                    controller.digging.parent.TakeHit(1);
+                    if (controller.digging.parent.isDead)
                     {
-                        controller.ChangeState(controller.stateWalking);
+                        controller.DoneDigging();
                     } 
                 }
                 controller.sprite.transform.localPosition = direction * moveAmount;
