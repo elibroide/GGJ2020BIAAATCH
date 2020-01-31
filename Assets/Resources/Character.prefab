@@ -222,12 +222,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab85ad6e87d544acbd8d5781f82ccc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holePrefab: {fileID: 0}
-  digDetector: {fileID: 1955389646891015970}
+  playerState: {fileID: 0}
   bodyPartsController: {fileID: 7515054537870181881}
   sprite: {fileID: 7777496195329062255}
+  rigidbody: {fileID: 8501493311059463342}
   stateDigging: {fileID: 571548394}
   stateWalking: {fileID: 571548393}
+  state: {fileID: 0}
 --- !u!114 &817153425413994682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3368293552055578434}
+  detector: {fileID: 0}
   touchingGrave: {fileID: 0}
   moveAmount: 0.01
   clicks: 0

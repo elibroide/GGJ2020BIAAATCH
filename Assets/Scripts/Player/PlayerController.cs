@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public PlayerState playerState;
     public BodyPartsController bodyPartsController;
     public SpriteRenderer sprite;
+    public Rigidbody2D rigidbody;
 
     [Header("States")]
     public PlayerState stateDigging;
