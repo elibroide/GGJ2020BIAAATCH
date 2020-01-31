@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Grave : MonoBehaviour
 {
-
     public float health = 2;
     public bool isDead = false;
 
@@ -27,9 +26,9 @@ public class Grave : MonoBehaviour
         isDead = true;
         Debug.Log("DEAD");
         Destroy(gameObject);
-        GameObject a = ResourceManager.GetGameObject("grave");
-        a.name = Time.time.ToString();
-        Instantiate(a);
+        // GameObject a = ResourceManager.GetGameObject("grave");
+        // a.name = Time.time.ToString();
+        // Instantiate(a);
 
     }
 }
