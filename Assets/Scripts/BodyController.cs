@@ -91,7 +91,7 @@ public class BodyController : MonoBehaviour
             var direction = randomRotation * (UnityEngine.Random.value > 0.5f ? Vector3.left : Vector3.right);
             var duration = 1.5f;
             var sequence = DOTween.Sequence();
-            sequence.Insert(0, body[type].transform.DOLocalRotate(Vector3.forward * ).isRelative(true));
+            sequence.Insert(0, body[type].transform.DOLocalRotate(Vector3.forward * 450, duration).SetRelative(true));
             sequence.Insert(0,
                 body[type].transform.DOJump(transform.position + direction.normalized * 2, 0.75f, 2, duration));
             sequence.InsertCallback(0.6f, body[type].Rot);
