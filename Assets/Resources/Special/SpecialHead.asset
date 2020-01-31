@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
+  m_Name: SpecialHead
+  m_EditorClassIdentifier: 
+  group: special
+  health: 100
+  decompositionRate: 1
+  type: 0
+  bodyPartController: {fileID: 1338163180149082746, guid: a77121aaa15bb44da8481f8ab41dc9ff,
+    type: 3}
+  bodyPartPickup: {fileID: 2807619082410858887, guid: 844ee7a2850384c158cac1b8b13c897c,
+    type: 3}

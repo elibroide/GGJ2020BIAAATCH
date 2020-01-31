@@ -5,8 +5,6 @@ namespace Player
     public class PlayerStateDigging : PlayerState
     {
         public PlayerController controller;
-        public PlayerDigDetector detector;
-        public Grave touchingGrave;
         public float moveAmount = 5.0f;
         
         [ReadOnly] public int clicks = 0;
@@ -22,26 +20,23 @@ namespace Player
             // Initialize
             clicks = 0;
             isLeft = false;
+            Camera.main.GetComponent<CameraController>().FocusIn();
             
             // Do animation of enter state
             controller.sprite.color = Color.red;
 
-            // Check collision with an area of dig
-            if (detector.touchingDig)
-            {
-                touchingGrave = detector.touchingDig.parent;
-            }
         }
 
         public override void LeaveState(PlayerState newState)
         {
             // Leave animation of dig state
             controller.sprite.transform.localPosition = Vector3.zero;
+            Camera.main.GetComponent<CameraController>().FocusOut();
         }
 
         public override void Tick()
         {
-            controller.bodyPartsController.Tick();
+            controller.bodyController.Tick();
             var direction = Vector3.zero;
             var isHit = false;
             if (clicks == 0 || isLeft)
@@ -59,12 +54,12 @@ namespace Player
             {
                 clicks++;
                 isLeft = !isLeft;
-                if (touchingGrave != null)
+                if (controller.digging.parent != null)
                 {
-                    touchingGrave.TakeHit(1);
-                    if (touchingGrave.isDead)
+                    controller.digging.parent.TakeHit(1);
+                    if (controller.digging.parent.isDead)
                     {
-                        controller.ChangeState(controller.stateWalking);
+                        controller.DoneDigging();
                     } 
                 }
                 controller.sprite.transform.localPosition = direction * moveAmount;
