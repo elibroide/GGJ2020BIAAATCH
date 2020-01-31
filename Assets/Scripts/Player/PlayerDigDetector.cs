@@ -1,23 +1,36 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Player
 {
     public class PlayerDigDetector : MonoBehaviour
     {
-        public AreaOfDig touchingDig;
-        public BodyPartPickup pickup;
+        public List<AreaOfDig> touchingDig;
+        public List<BodyPartPickup> pickup;
+
+        public AreaOfDig GetDig()
+        {
+            return touchingDig.FirstOrDefault();
+        }
+
+        public BodyPartPickup GetPickup()
+        {
+            return pickup.FirstOrDefault();
+        }
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("PlayerDigDetector - Touch");
             var touchingDig = other.GetComponent<AreaOfDig>();
             if (touchingDig != null)
             {
-                this.touchingDig = touchingDig;
+                this.touchingDig.Add(touchingDig);
             }
             else
             {
-                this.pickup = other.GetComponent<BodyPartPickup>();
+                this.pickup.Add(other.GetComponent<BodyPartPickup>());
             }
         }
 
@@ -27,11 +40,11 @@ namespace Player
             var touchingDig = other.GetComponent<AreaOfDig>();
             if (touchingDig != null)
             {
-                this.touchingDig = null;
+                this.touchingDig.Remove(touchingDig);
             }
             else
             {
-                this.pickup = null;
+                this.pickup.Remove(other.GetComponent<BodyPartPickup>());
             }
         }
     }
