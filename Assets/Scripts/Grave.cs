@@ -24,7 +24,6 @@ public class Grave : MonoBehaviour
     private void Kill()
     {
         isDead = true;
-        Debug.Log("DEAD");
         Destroy(gameObject);
         // GameObject a = ResourceManager.GetGameObject("grave");
         // a.name = Time.time.ToString();
