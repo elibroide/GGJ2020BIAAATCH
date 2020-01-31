@@ -21,6 +21,7 @@ namespace Player
             clicks = 0;
             isLeft = false;
             Camera.main.GetComponent<CameraController>().FocusIn();
+            GUIController.Instance.ShowDiggingScreen();
             
             // Do animation of enter state
             controller.sprite.color = Color.red;
@@ -32,6 +33,7 @@ namespace Player
             // Leave animation of dig state
             controller.sprite.transform.localPosition = Vector3.zero;
             Camera.main.GetComponent<CameraController>().FocusOut();
+            GUIController.Instance.HideDiggingScreen();
         }
 
         public override void Tick()
