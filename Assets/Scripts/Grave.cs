@@ -8,7 +8,8 @@ public class Grave : MonoBehaviour
 {
 
     public float health = 2;
-    // Start is called before the first frame update
+    public bool isDead = false;
+
     void Start()
     {
         
@@ -23,17 +24,12 @@ public class Grave : MonoBehaviour
 
     private void Kill()
     {
+        isDead = true;
         Debug.Log("DEAD");
         Destroy(gameObject);
         GameObject a = ResourceManager.GetGameObject("grave");
         a.name = Time.time.ToString();
         Instantiate(a);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        TakeHit(Time.deltaTime);
     }
 }

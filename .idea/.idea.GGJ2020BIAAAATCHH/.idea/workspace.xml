@@ -12,26 +12,57 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerStateWalking.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BodyPartsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grave.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/IPlayerState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BodyPart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ReadOnly.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderInitializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9C9C9306-5BA7-4F78-A217-8F312FAF56E7/cd/cf302391/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AreaOfDig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerDigDetector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerStateDigging.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BodyParts.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/58A4DD82-307E-4998-A93E-7F385E72C68B/e3/61ba5fab/DOVirtual.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BF5F45F9-036E-4C62-A663-0FF0AD516D88/59/203fe8a3/Input.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BodyParts.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BodyPartsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/IPlayerState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AreaOfDig.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCollisionDetector.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Grave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStateWalking.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStateDigging.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDigDetector.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1X9a9ZVSXYQPSJofwSN9x4KQ6S4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -63,8 +94,51 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4b455bb-d972-4eaa-9e43-e3267e3369c3" name="Default Changelist" comment="" />
+      <created>1580460614958</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580460614958</updated>
+      <workItem from="1580460618873" duration="3290000" />
+      <workItem from="1580463985961" duration="1761000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="524" y="133" key="RiderGenerateDialog" timestamp="1580461306781">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state x="524" y="133" key="RiderGenerateDialog/0.23.1440.806@0.23.1440.806" timestamp="1580461306781" />
+    <state x="221" y="65" key="SettingsEditor" timestamp="1580463998303">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state x="221" y="65" key="SettingsEditor/0.23.1440.806@0.23.1440.806" timestamp="1580463998303" />
+    <state x="371" y="183" width="698" height="486" key="find.popup" timestamp="1580465835407">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state x="371" y="183" width="698" height="486" key="find.popup/0.23.1440.806@0.23.1440.806" timestamp="1580465835407" />
+    <state x="383" y="150" width="672" height="678" key="search.everywhere.popup" timestamp="1580464902692">
+      <screen x="0" y="23" width="1440" height="806" />
+    </state>
+    <state x="383" y="150" width="672" height="678" key="search.everywhere.popup/0.23.1440.806@0.23.1440.806" timestamp="1580464902692" />
+  </component>
 </project>
