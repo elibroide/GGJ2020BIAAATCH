@@ -1,60 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Player;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject holePrefab; 
+        
+    public IPlayerState playerState;
+    public BodyPartsController bodyPartsController;
     public PlayerMovementController movementController;
     public SpriteRenderer sprite;
 
-    private bool isAttacking;
+    public IPlayerState state;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        ChangeState(new PlayerStateWalking(this));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isAttacking)
-        {
-            return;
-        }
+        state.Tick();
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Perform attack
-            isAttacking = true;
-            movementController.Stop();
-            var sequence = DOTween.Sequence();
-            sequence.InsertCallback(0, () => sprite.color = Color.red);
-            sequence.InsertCallback(2, () => { 
-                isAttacking = false;
-                sprite.color = Color.white;
-            });
-            return;
-        }
-        var direction = Vector2.zero;
-        if (Input.GetKey(KeyCode.A))
-        {
-            direction += Vector2.left;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            direction += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            direction += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            direction += Vector2.right;
-        }
-        movementController.SetDirection(direction);
+    public void ChangeState(IPlayerState newState)
+    {
+        state.LeaveState(newState);
+        newState.EnterState(state);
+        state = newState;
     }
 
     private void CheckAttack()
