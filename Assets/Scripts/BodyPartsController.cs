@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
     
 
-public class BodyParts : MonoBehaviour
+public class BodyPartsController : MonoBehaviour
 {
     Dictionary<BodyPartType, BodyPartController> body = new Dictionary<BodyPartType, BodyPartController>();
     Action<List<BodyPartController>> onDropParts;
@@ -19,12 +19,7 @@ public class BodyParts : MonoBehaviour
         body[BodyPartType.LegRight] = new BodyPartController(BodyPartType.LegRight, 3, "lr");
     }
 
-    private void Update()
-    {
-        OnTick();
-    }
-
-    public void OnTick()
+    public void Tick()
     {
         
         // decompose all

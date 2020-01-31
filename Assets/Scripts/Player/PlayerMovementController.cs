@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    public Rigidbody2D rigidbody;
+    
     public float maxSpeed;
     public float accelerateTime;
     public float decelerateTime;
@@ -13,7 +15,6 @@ public class PlayerMovementController : MonoBehaviour
 
     private float _currentTargetSpeed;
     private bool _currentIsAccelerating;
-    private Rigidbody2D _rigidbody;
     private Tween _speedTween;
     
     /*
@@ -51,13 +52,6 @@ public class PlayerMovementController : MonoBehaviour
      * 
      */
     
-    // Start is called before the first frame update
-    void Awake()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         CalcSpeed();
@@ -77,6 +71,6 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Move()
     {
-        _rigidbody.velocity = direction.normalized * (Time.deltaTime * speed);
+        rigidbody.velocity = direction.normalized * (Time.deltaTime * speed);
     }
 }
