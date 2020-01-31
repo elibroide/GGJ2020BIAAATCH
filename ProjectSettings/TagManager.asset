@@ -50,6 +50,9 @@ TagManager:
   - name: objects
     uniqueID: 1131545057
     locked: 0
+  - name: biuldings
+    uniqueID: 2909423609
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
