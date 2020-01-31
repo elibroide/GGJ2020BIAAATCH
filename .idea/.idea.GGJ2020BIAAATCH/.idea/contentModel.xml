@@ -456,6 +456,7 @@
           </e>
           <e p="Grave.cs" t="Include" />
           <e p="GUI" t="Include">
+            <e p="DiggingScreen.cs" t="Include" />
             <e p="GuiBodyPart.cs" t="Include" />
             <e p="GUIController.cs" t="Include" />
           </e>
