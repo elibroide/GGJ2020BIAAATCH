@@ -4,22 +4,23 @@ using UnityEngine.Serialization;
 
 namespace Player
 {
-    public class PlayerStateWalking : MonoBehaviour, IPlayerState
+    public class PlayerStateWalking : PlayerState
     {
         public PlayerController controller;
         public PlayerMovementController movementController;
 
-        public void EnterState(IPlayerState previousState)
+        public override void EnterState(PlayerState previousState)
         {
             controller.sprite.color = Color.white;
         }
 
-        public void LeaveState(IPlayerState newState)
+        public override void LeaveState(PlayerState newState)
         {
         }
 
-        public void Tick()
+        public override void Tick()
         {
+            controller.bodyPartsController.Tick();
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // Perform attack

@@ -2,9 +2,10 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerStateDigging : MonoBehaviour, IPlayerState
+    public class PlayerStateDigging : PlayerState
     {
         public PlayerController controller;
+        public PlayerDigDetector detector;
         public Grave touchingGrave;
         public float moveAmount = 5.0f;
         
@@ -16,7 +17,7 @@ namespace Player
             GetComponentInParent<PlayerController>();
         }
         
-        public void EnterState(IPlayerState previousState)
+        public override void EnterState(PlayerState previousState)
         {
             // Initialize
             clicks = 0;
@@ -26,20 +27,21 @@ namespace Player
             controller.sprite.color = Color.red;
 
             // Check collision with an area of dig
-            if (controller.digDetector.touchingDig)
+            if (detector.touchingDig)
             {
-                touchingGrave = controller.digDetector.touchingDig.parent;
+                touchingGrave = detector.touchingDig.parent;
             }
         }
 
-        public void LeaveState(IPlayerState newState)
+        public override void LeaveState(PlayerState newState)
         {
             // Leave animation of dig state
             controller.sprite.transform.localPosition = Vector3.zero;
         }
 
-        public void Tick()
+        public override void Tick()
         {
+            controller.bodyPartsController.Tick();
             var direction = Vector3.zero;
             var isHit = false;
             if (clicks == 0 || isLeft)
