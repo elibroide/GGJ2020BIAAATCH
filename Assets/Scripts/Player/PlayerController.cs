@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        bodyController = GetComponent<BodyController>();
+        detector = GetComponent<PlayerDigDetector>();
         state = stateWalking;
 
         var factory = FindObjectOfType<BodyPartFactory>();

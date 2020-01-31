@@ -97,6 +97,9 @@ GameObject:
   - component: {fileID: 3601499032845883866}
   - component: {fileID: 922671771970481498}
   - component: {fileID: 7297192389911539562}
+  - component: {fileID: 1215341942}
+  - component: {fileID: 8980940950282269257}
+  - component: {fileID: 1215341944}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -131,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab85ad6e87d544acbd8d5781f82ccc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detector: {fileID: 7297192389911539562}
-  bodyController: {fileID: 7515054537870181881}
+  detector: {fileID: 0}
+  bodyController: {fileID: 0}
   sprite: {fileID: 7777496195329062255}
   rigidbody: {fileID: 3601499032845883866}
   digging: {fileID: 0}
@@ -248,6 +251,47 @@ BoxCollider2D:
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &7297192389911539562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402986143178092790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3bc7f7e43f4884b1d805eaccae816a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchingDig: {fileID: 0}
+  pickup: {fileID: 0}
+--- !u!114 &1215341942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402986143178092790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c8b8e6d3d44f2ca8165751b7e4044f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  isAuto: 1
+  parent: {fileID: 0}
+--- !u!114 &8980940950282269257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402986143178092790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3d2fa7974294462aaa7b43a94a115f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1215341944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
