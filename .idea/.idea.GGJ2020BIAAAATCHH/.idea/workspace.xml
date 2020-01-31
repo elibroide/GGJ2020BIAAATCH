@@ -15,8 +15,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerStateWalking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BodyPartsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grave.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/IPlayerState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BodyPart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ReadOnly.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderInitializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9C9C9306-5BA7-4F78-A217-8F312FAF56E7/cd/cf302391/Transform.cs" root0="SKIP_HIGHLIGHTING" />
@@ -32,16 +31,16 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/BodyParts.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BodyPartsController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/IPlayerState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AreaOfDig.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovementController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCollisionDetector.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Grave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDigDetector.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/IPlayerState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStateWalking.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStateDigging.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDigDetector.cs" />
       </list>
     </option>
   </component>
@@ -101,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580460614958</updated>
       <workItem from="1580460618873" duration="3290000" />
-      <workItem from="1580463985961" duration="1761000" />
+      <workItem from="1580463985961" duration="2319000" />
     </task>
     <servers />
   </component>

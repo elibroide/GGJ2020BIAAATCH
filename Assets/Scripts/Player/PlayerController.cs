@@ -6,18 +6,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject holePrefab;
-
-    public PlayerDigDetector digDetector;
-    public IPlayerState playerState;
+    public PlayerState playerState;
     public BodyPartsController bodyPartsController;
     public SpriteRenderer sprite;
+    public Rigidbody2D rigidbody;
 
     [Header("States")]
-    public PlayerStateDigging stateDigging;
-    public PlayerStateWalking stateWalking;
-
-    public IPlayerState state;
+    public PlayerState stateDigging;
+    public PlayerState stateWalking;
+    
+    [ReadOnly]
+    public PlayerState state;
 
     void Start()
     {
@@ -29,7 +28,7 @@ public class PlayerController : MonoBehaviour
         state.Tick();
     }
 
-    public void ChangeState(IPlayerState newState)
+    public void ChangeState(PlayerState newState)
     {
         state.LeaveState(newState);
         newState.EnterState(state);
