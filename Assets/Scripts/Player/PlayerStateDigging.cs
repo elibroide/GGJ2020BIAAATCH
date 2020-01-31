@@ -20,6 +20,7 @@ namespace Player
             // Initialize
             clicks = 0;
             isLeft = false;
+            Camera.current.GetComponent<CameraController>().FocusIn();
             
             // Do animation of enter state
             controller.sprite.color = Color.red;
@@ -30,6 +31,7 @@ namespace Player
         {
             // Leave animation of dig state
             controller.sprite.transform.localPosition = Vector3.zero;
+            Camera.current.GetComponent<CameraController>().FocusOut();
         }
 
         public override void Tick()

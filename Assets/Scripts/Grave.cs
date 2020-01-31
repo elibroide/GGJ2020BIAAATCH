@@ -23,7 +23,6 @@ public class Grave : MonoBehaviour
     private void Kill()
     {
         isDead = true;
-        Debug.Log("DEAD");
         Destroy(gameObject);
 
         var itemsDropped = 0;

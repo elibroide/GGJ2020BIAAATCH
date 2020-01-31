@@ -10,6 +10,62 @@ public class BodyPartFactory : MonoBehaviour
     public Transform itemsParent;
     
     public string[] names;
+
+    [ReadOnly]
+    public string[] names = new string[]
+    {
+"Rogelio",
+"In",
+"Dara",
+"Diana",
+"Lamonica",
+"Jeneva",
+"Korey",
+"Felicidad",
+"Hye",
+"Ilda",
+"Jolene",
+"Valeri",
+"Rosella",
+"Les",
+"Lauri",
+"Carma",
+"Leonore",
+"Alona",
+"Ada",
+"Lai",
+"Jill",
+"Galev",
+"Erwin",
+"Wilhelmina",
+"Aaron",
+"Broderick",
+"Bettina",
+"Hilario",
+"Kingv",
+"Zana",
+"Loriav",
+"Winonav",
+"Crystav",
+"Mathew",
+"Verdell",
+"Ora",
+"Grant",
+"Lyndsey",
+"Lorriane",
+"Kristyn",
+"Lynelle",
+"Cherrie",
+"Ardelia",
+"Curt",
+"Nicolas",
+"Rolando",
+"Frederick",
+"Annice",
+"Annalisa",
+"Ruthann",
+    };
+
     public BodyPart[] parts;
     private string[] _groups;
 
