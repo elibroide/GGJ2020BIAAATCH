@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3368293552055578434}
-  detector: {fileID: 0}
+  detector: {fileID: 1955389646891015970}
   touchingGrave: {fileID: 0}
   moveAmount: 0.01
   clicks: 0
