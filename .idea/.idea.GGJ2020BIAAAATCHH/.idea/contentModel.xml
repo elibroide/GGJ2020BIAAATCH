@@ -22,6 +22,7 @@
           <e p="BodyPart.cs" t="Include" />
           <e p="BodyPartsController.cs" t="Include" />
           <e p="BodyPartType.cs" t="Include" />
+          <e p="Grave.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="IPlayerState.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />

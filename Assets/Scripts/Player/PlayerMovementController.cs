@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    public Rigidbody2D rigidbody;
+    
     public float maxSpeed;
     public float accelerateTime;
     public float decelerateTime;
@@ -13,7 +15,6 @@ public class PlayerMovementController : MonoBehaviour
 
     private float _currentTargetSpeed;
     private bool _currentIsAccelerating;
-    private Rigidbody2D _rigidbody;
     private Tween _speedTween;
     
     /*
