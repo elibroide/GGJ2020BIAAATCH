@@ -802,7 +802,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 54649807f014045fd900733d5fe0d096, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1022,7 +1022,7 @@ Animation:
   m_GameObject: {fileID: 9163829212075935149}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: f23825a20936941d299e8503e541fc52, type: 2}
+  m_Animation: {fileID: 7400000, guid: fc32e12483b934c78863061d1815bb14, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 1e39fb1447a7c462aa8db18dc9449fdd, type: 2}
   - {fileID: 7400000, guid: fc32e12483b934c78863061d1815bb14, type: 2}
