@@ -31,12 +31,13 @@ public class GUIController : MonoBehaviour
             if (elem.Value == null)
             {
                 partsGUI[elem.Key].text.text = $"no {elem.Key}";
-                partsGUI[elem.Key].fill.fillAmount = 0;
+                partsGUI[elem.Key].SetHealth(1);
             }
             else
             {
-                partsGUI[elem.Key].text.text = $"{elem.Value.ownerName}'s {elem.Key}";
-                partsGUI[elem.Key].fill.fillAmount = elem.Value.health / 100;
+                partsGUI[elem.Key].text.text = $"{elem.Value.ownerName}";
+                partsGUI[elem.Key].SetHealth(elem.Value.health / 100);
+
             }
         }
     }
