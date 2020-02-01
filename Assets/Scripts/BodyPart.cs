@@ -21,8 +21,10 @@ public class BodyPart : ScriptableObject
 
     public BodyPartData CreateData(string owner)
     {
+        var decomposeRate = 2 + UnityEngine.Random.value * 4;
         return new BodyPartData
         {
+            decomposeRate = decomposeRate,
             parent = this,
             health = this.health,
             ownerName = owner,
@@ -38,24 +40,10 @@ public class BodyPartData
     public string ownerName;
     public BodyPartType type;
     public BodyPart parent;
+    public float decomposeRate { get; set; }
 
     public void Decompose(float deltaTime)
     {
-        var decomposeRate = 1;
-        switch (type)
-        {
-            case BodyPartType.Head:
-                decomposeRate = 3;
-                break;
-            case BodyPartType.HandLeft:
-            case BodyPartType.HandRight:
-                decomposeRate = 1;
-                break;
-            case BodyPartType.LegLeft:
-            case BodyPartType.LegRight:
-                decomposeRate = 2;
-                break;
-        }
         health -= deltaTime * decomposeRate;
     }
 }

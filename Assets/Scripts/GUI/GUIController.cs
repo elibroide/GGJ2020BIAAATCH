@@ -31,7 +31,7 @@ public class GUIController : MonoBehaviour
             if (elem.Value == null)
             {
                 partsGUI[elem.Key].text.text = $"no {elem.Key}";
-                partsGUI[elem.Key].SetHealth(1);
+                partsGUI[elem.Key].SetHealth(0);
             }
             else
             {
