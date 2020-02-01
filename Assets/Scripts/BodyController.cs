@@ -20,6 +20,7 @@ public class BodyController : MonoBehaviour
         { BodyPartType.HandRight, null },
         { BodyPartType.LegLeft, null },
         { BodyPartType.LegRight, null },
+        { BodyPartType.Body, null },
     };
     Action<List<BodyPartData>> OnDropParts;
 
@@ -56,6 +57,7 @@ public class BodyController : MonoBehaviour
         foreach (var part in body.Values.Where(value => value != null))
         {
             part.Decompose(delta);
+            if (part.type == BodyPartType.Body) continue;
             if (part.health <= 0) deadParts.Add(part);
         }
 

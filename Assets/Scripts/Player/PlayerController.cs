@@ -46,12 +46,14 @@ public class PlayerController : MonoBehaviour
         var factory = FindObjectOfType<BodyPartFactory>();
 
         var theName = characterName;
+        var theType = "zombit";
         var welcome = FindObjectOfType<WelcomeScreen>();
         if (welcome != null)
         {
             theName = welcome.playerName;
+            theType = welcome.playerType;
         }
-        var group = factory.GetBodyPartOfGroup(characterOriginalBody);
+        var group = factory.GetBodyPartOfGroup(theType);
         foreach (var item in group)
         {
             bodyController.AddPart(item, theName);
@@ -104,6 +106,16 @@ public class PlayerController : MonoBehaviour
 
     public void PickUp(BodyPartPickup detectorPickup)
     {
+        if (detectorPickup.data.type == BodyPartType.Body)
+        {
+            foreach (var item in bodyController.body)
+            {
+                if (item.Value != null)
+                {
+                    item.Value.health = Mathf.Min(100, item.Value.health + 30);
+                }
+            }
+        }
         bodyController.AddPart(detectorPickup.data.parent, detectorPickup.data.ownerName);
         detectorPickup.PickedUp();
     }

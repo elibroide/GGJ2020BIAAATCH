@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
+  m_Name: zombit body
+  m_EditorClassIdentifier: 
+  group: zombit
+  health: 150
+  decompositionRate: 0
+  type: 5
+  front: {fileID: 1743623763048097116, guid: 3c05a5006c4544ea2b5b6a028aaa5ea6, type: 3}
+  back: {fileID: 3915495073060553642, guid: f1ef20a0ea12f4b42bbb380cb9d8cca5, type: 3}
+  left: {fileID: 1433776061131885213, guid: 738dcd4edc87348538d034411e908ef0, type: 3}
+  right: {fileID: 8913005116167374534, guid: 36853ed5e89894ab9a4c4d3848b6b3c9, type: 3}
+  dig: {fileID: 0}
+  bodyPartPickup: {fileID: 1743623763048097116, guid: 3c05a5006c4544ea2b5b6a028aaa5ea6,
+    type: 3}

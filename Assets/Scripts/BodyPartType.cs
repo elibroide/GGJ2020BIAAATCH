@@ -6,4 +6,5 @@ public enum BodyPartType
     HandRight,
     LegLeft,
     LegRight,
+    Body,
 }

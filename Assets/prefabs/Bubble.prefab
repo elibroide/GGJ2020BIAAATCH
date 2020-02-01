@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2010298073476464909}
+  body: {fileID: 21300000, guid: 120d61545d79345d5952f8003937cd67, type: 3}
   head: {fileID: 21300000, guid: 1c26c262532ef44e496551092aeea9e0, type: 3}
   handLeft: {fileID: 21300000, guid: 5e5e44ddd4e5d49479d64e33099a17a2, type: 3}
   handRight: {fileID: 21300000, guid: 03839369759ff4a4fb28f6eb3d58c62a, type: 3}

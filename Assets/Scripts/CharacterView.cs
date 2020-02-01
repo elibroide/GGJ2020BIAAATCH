@@ -34,6 +34,7 @@ public class CharacterView: MonoBehaviour
         { BodyPartType.HandRight, "but/torso/RArm" }, 
         { BodyPartType.LegLeft, "L Pants" }, 
         { BodyPartType.LegRight, "R Pants" }, 
+        { BodyPartType.Body, "but" }, 
     };
 
     // Use this for initialization
@@ -126,16 +127,28 @@ public class CharacterView: MonoBehaviour
 
     public void Replace(string animationType, BodyPartType bodyPartType, GameObject prefab)
     {
-        var path = animationPathMap[bodyPartType];
         var partObject = Instantiate(prefab, transform, false);
         var frontNewTransform = partObject.transform;
+        var path = animationPathMap[bodyPartType];
         var frontOldTransform = FindDeep(animationType + "/" + path);
-        frontNewTransform.gameObject.name = frontOldTransform.name;
         frontNewTransform.SetParent(frontOldTransform.parent);
         frontNewTransform.position = frontOldTransform.position;
         frontNewTransform.rotation = frontOldTransform.rotation;
         frontNewTransform.localScale = frontOldTransform.localScale;
-        Destroy(frontOldTransform.gameObject);
+        
+        if (bodyPartType == BodyPartType.Body)
+        {
+            var torso = frontNewTransform.Find("torso");
+            // Get arms and head
+            var head = FindDeep(animationType + "/" + animationPathMap[BodyPartType.Head]);
+            var lHand = FindDeep(animationType + "/" + animationPathMap[BodyPartType.HandLeft]);
+            var rHand = FindDeep(animationType + "/" + animationPathMap[BodyPartType.HandRight]);
+            head.SetParent(torso, true);
+            lHand.SetParent(torso, true);
+            rHand.SetParent(torso, true);
+        }
+        frontNewTransform.gameObject.name = frontOldTransform.name;
+        DestroyImmediate(frontOldTransform.gameObject);
     }
     
     public Transform FindDeep(string path)

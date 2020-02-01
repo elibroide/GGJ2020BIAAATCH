@@ -37,6 +37,7 @@ public class GUIController : MonoBehaviour
     {
         foreach (var elem in body)
         {
+            if (elem.Key == BodyPartType.Body) continue;
             if (elem.Value == null)
             {
                 partsGUI[elem.Key].text.text = $"no {elem.Key}";

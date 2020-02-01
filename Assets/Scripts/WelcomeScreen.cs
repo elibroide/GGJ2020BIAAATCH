@@ -19,6 +19,7 @@ public enum WelcomeState
 }
 public class WelcomeScreen : MonoBehaviour
 {
+    public string playerType;
     public string playerName;
     public Camera screenCamera;
     [Space]
@@ -99,6 +100,15 @@ public class WelcomeScreen : MonoBehaviour
         sequence.InsertCallback(currentDuration + flash.timeToFlash, () =>
         {
             character.gameObject.SetActive(true);
+            
+            playerType = BodyPartFactory.Instance.GetGroup();
+            Debug.Log("YOYOYO " + playerType);
+            var items = BodyPartFactory.Instance.GetBodyPartOfGroup(playerType);
+            foreach (var item in items)
+            {
+                character.SetBodyPart(item);
+            }
+            
             character.SetState(AnimationState.IDLE);
             character.SetDirection(Direction.DOWN);
         });

@@ -7,6 +7,7 @@ public class Bubble : MonoBehaviour
 {
     public Text text;
 
+    public Sprite body;
     public Sprite head;
     public Sprite handLeft;
     public Sprite handRight;
@@ -29,6 +30,9 @@ public class Bubble : MonoBehaviour
         transform.localScale = Vector3.zero;
         switch (data.type)
         {
+            case BodyPartType.Body:
+                partImage.sprite = body; 
+                break;
             case BodyPartType.Head:
                 partImage.sprite = head; 
                 break;

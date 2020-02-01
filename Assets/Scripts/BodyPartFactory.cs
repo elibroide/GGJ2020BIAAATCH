@@ -76,6 +76,11 @@ public class BodyPartFactory : MonoBehaviour
         _groups = parts.Select(part => part.@group).Distinct().ToArray();
     }
 
+    public string GetGroup()
+    {
+        return _groups[UnityEngine.Random.Range(0, _groups.Length - 1)];
+    }
+
     public BodyPart[] GetBodyPartOfGroup(string type)
     {
         return parts.Where(part => part.group == type).ToArray();
