@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab85ad6e87d544acbd8d5781f82ccc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detector: {fileID: 0}
+  detector: {fileID: 7297192389911539562}
   bodyController: {fileID: 0}
   sprite: {fileID: 7777496195329062255}
   rigidbody: {fileID: 3601499032845883866}
@@ -188,6 +188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 3368293552055578434}
   movementController: {fileID: 817153425413994682}
+  fullSpeed: 150
+  halfSpeed: 75
+  lowSpeed: 10
 --- !u!114 &571548394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +207,7 @@ MonoBehaviour:
   moveAmount: 0.02
   clicks: 0
   isLeft: 0
-  shakeOnDigDuration: 0.075
+  shakeOnDigDuration: 0.1
   shakeOnDigStrength: 0.02
 --- !u!50 &3601499032845883866
 Rigidbody2D:
@@ -239,8 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3bc7f7e43f4884b1d805eaccae816a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingDig: {fileID: 0}
-  pickup: {fileID: 0}
+  touchingDig: []
+  pickup: []
 --- !u!114 &1215341942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,8 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3bc7f7e43f4884b1d805eaccae816a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchingDig: {fileID: 0}
-  pickup: {fileID: 0}
+  touchingDig: []
+  pickup: []
 --- !u!58 &1642052502
 CircleCollider2D:
   m_ObjectHideFlags: 0

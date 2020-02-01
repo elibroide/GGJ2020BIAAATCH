@@ -75,8 +75,9 @@ namespace Player
                     {
                         FindObjectOfType<CameraController>().Shake(shakeOnDigDuration, shakeOnDigStrength);
                         controller.digging.parent.TakeHit(1);
-                        if (controller.digging.parent.isDead)
+                        if (controller.digging.parent.isOpened)
                         {
+                            controller.digging.parent.HidePeek();
                             controller.DoneDigging();
                         } 
                     }

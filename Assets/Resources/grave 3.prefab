@@ -288,6 +288,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3936163291535693233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6374232947154025877}
+  m_Layer: 0
+  m_Name: bubble parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6374232947154025877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3936163291535693233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6981616458660248228}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5072329304523784536
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5072329304523784536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.038, y: -0.437, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6981616458660248228}
@@ -481,6 +511,7 @@ Transform:
   - {fileID: 8464964318020329430}
   - {fileID: 5946570119320854015}
   - {fileID: 5765726566621562588}
+  - {fileID: 6374232947154025877}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -498,12 +529,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItems: 1
   health: 50
-  isDead: 0
+  isOpened: 0
   closed: {fileID: 7617607705069321516}
   opened: {fileID: 2874385818854645100}
   drops:
   - {fileID: 558716997731286801}
   particles: {fileID: 8328548042768961703}
+  bubbleParent: {fileID: 6374232947154025877}
+  hiddenItem: {fileID: 0}
+  bubble: {fileID: 0}
+  _bodyPart:
+    health: 0
+    ownerName: 
+    type: 0
+    parent: {fileID: 0}
 --- !u!1 &7004854556573898699
 GameObject:
   m_ObjectHideFlags: 0

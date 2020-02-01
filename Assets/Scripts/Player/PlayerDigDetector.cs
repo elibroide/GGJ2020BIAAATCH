@@ -7,6 +7,9 @@ namespace Player
 {
     public class PlayerDigDetector : MonoBehaviour
     {
+        public Action<AreaOfDig> enteredAreaOfDig;
+        public Action<AreaOfDig> leftAreaOfDig;
+        
         public List<AreaOfDig> touchingDig;
         public List<BodyPartPickup> pickup;
 
@@ -27,6 +30,11 @@ namespace Player
             if (touchingDig != null)
             {
                 this.touchingDig.Add(touchingDig);
+                enteredAreaOfDig?.Invoke(touchingDig);
+                if (!touchingDig.parent.isOpened)
+                {
+                    touchingDig.parent.Peek();
+                }
             }
             else
             {
@@ -41,6 +49,8 @@ namespace Player
             if (touchingDig != null)
             {
                 this.touchingDig.Remove(touchingDig);
+                leftAreaOfDig?.Invoke(touchingDig);
+                touchingDig.parent.HidePeek();
             }
             else
             {
