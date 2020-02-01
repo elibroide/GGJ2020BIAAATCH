@@ -98,6 +98,7 @@ MonoBehaviour:
   stateDigging: {fileID: 571548394}
   stateWalking: {fileID: 571548393}
   state: {fileID: 0}
+  timeStarted: 0
 --- !u!114 &817153425413994682
 MonoBehaviour:
   m_ObjectHideFlags: 0
