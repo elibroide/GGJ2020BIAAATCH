@@ -24,7 +24,7 @@ public class GUIController : MonoBehaviour
         
     // }
     
-    public void UpdateBodyState(Dictionary<BodyPartType, BodyPartController> body)
+    public void UpdateBodyState(Dictionary<BodyPartType, BodyPartData> body)
     {
         foreach (var elem in body)
         {
@@ -35,8 +35,8 @@ public class GUIController : MonoBehaviour
             }
             else
             {
-                partsGUI[elem.Key].text.text = $"{elem.Value.data.ownerName}";
-                partsGUI[elem.Key].SetHealth(elem.Value.data.health / 100);
+                partsGUI[elem.Key].text.text = $"{elem.Value.ownerName}";
+                partsGUI[elem.Key].SetHealth(elem.Value.health / 100);
 
             }
         }
