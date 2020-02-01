@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 0}
+  - {fileID: 2833907114736568253}
   isAuto: 0
   parent: {fileID: 0}
 --- !u!1 &5483715865770292817

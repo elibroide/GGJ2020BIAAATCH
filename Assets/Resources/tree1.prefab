@@ -183,6 +183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 0}
+  - {fileID: 8045176044122308372}
   isAuto: 0
   parent: {fileID: 0}

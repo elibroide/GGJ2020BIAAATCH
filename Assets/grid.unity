@@ -543,6 +543,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1893168526}
     m_Modifications:
+    - target: {fileID: 4166300548211148125, guid: fce161e65372d61428fb402794206708,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4241221460608153880, guid: fce161e65372d61428fb402794206708,
         type: 3}
       propertyPath: m_Name
@@ -10020,6 +10025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tree 5 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113659702542310906, guid: f8b772690ea829d43a36441f3a900f0a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8644575652757815459, guid: f8b772690ea829d43a36441f3a900f0a,
         type: 3}
