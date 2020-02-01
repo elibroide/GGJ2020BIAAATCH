@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Player;
 using UnityEngine;
@@ -7,9 +8,11 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    public string characterName = "eli";
+    public string characterOriginalBody = "zombit";
     public PlayerDigDetector detector;
     [FormerlySerializedAs("bodyPartsController")] public BodyController bodyController;
-    public SpriteRenderer sprite;
+    public CharacterView view;
     public Rigidbody2D rigidbody;
     
     [Header("States")] public AreaOfDig digging; 
@@ -21,18 +24,23 @@ public class PlayerController : MonoBehaviour
     [ReadOnly]
     public PlayerState state;
 
-    void Start()
+    void Awake()
     {
         bodyController = GetComponent<BodyController>();
         detector = GetComponent<PlayerDigDetector>();
-        state = stateWalking;
+    }
 
+    void Start()
+    {
+        bodyController.AddedPart += BodyControllerOnAddedPart;
+        bodyController.DropPart += BodyControllerOnDropPart;
         var factory = FindObjectOfType<BodyPartFactory>();
-        var group = factory.GetBodyPartOfGroup("normal");
+        var group = factory.GetBodyPartOfGroup(characterOriginalBody);
         foreach (var item in group)
         {
-            bodyController.AddPart(item, "Eli");
+            bodyController.AddPart(item, characterName);
         }
+        ChangeState(stateWalking);
     }
 
     void Update()
@@ -42,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeState(PlayerState newState)
     {
-        state.LeaveState(newState);
+        state?.LeaveState(newState);
         newState.EnterState(state);
         state = newState;
     }
@@ -61,7 +69,17 @@ public class PlayerController : MonoBehaviour
 
     public void PickUp(BodyPartPickup detectorPickup)
     {
-        detectorPickup.PickedUp();
         bodyController.AddPart(detectorPickup.data.parent, detectorPickup.data.ownerName);
+        detectorPickup.PickedUp();
+    }
+    
+    private void BodyControllerOnDropPart(BodyPartData obj)
+    {
+        view.RemovePart(obj.parent);
+    }
+
+    private void BodyControllerOnAddedPart(BodyPartData obj)
+    {
+        view.SetBodyPart(obj.parent);
     }
 }

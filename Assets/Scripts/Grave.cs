@@ -4,37 +4,66 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class Grave : MonoBehaviour
 {
     public int dropItems = 1;
     public float health = 2;
-    public bool isDead = false;
+    [FormerlySerializedAs("isDead")] public bool isOpened = false;
 
+    public SpriteRenderer closed;
+    public SpriteRenderer opened;
     public Transform[] drops;
+    public ParticleSystem particles;
+
+    public Transform bubbleParent;
+
+    [ReadOnly] public BodyPartPickup hiddenItem;
+    [ReadOnly] public Bubble bubble;
+    [ReadOnly] public BodyPartData _bodyPart;
+
+    void Start()
+    {
+        _bodyPart = BodyPartFactory.Instance.GetBodyPartData();
+    }
+
+    public void Peek()
+    {
+        if (bubble != null)
+        {
+            return;
+        }
+        bubble = BodyPartFactory.Instance.CreateBubble(_bodyPart);
+        bubble.transform.SetParent(bubbleParent, true);
+        bubble.transform.localPosition = Vector3.zero;
+        bubble.Show();
+    }
+
+    public void HidePeek()
+    {
+        if (bubble != null)
+        {
+            bubble.Hide();
+        }
+        bubble = null;
+    }
 
     public void TakeHit(float damage)
     {
         health -= damage;
-        
+        // particles.Emit(Mathf.CeilToInt(1 + Random.value * 3));
         if (health <= 0) Kill();
     }
 
     private void Kill()
     {
-        isDead = true;
-        Destroy(gameObject);
+        isOpened = true;
+        closed.gameObject.SetActive(false);
+        opened.gameObject.SetActive(true);
 
-        var itemsDropped = 0;
-        foreach (var drop in drops)
-        {
-            if (itemsDropped == dropItems)
-            {
-                break;
-            }
-            var pickup = BodyPartFactory.Instance.CreatePickup();
-            pickup.transform.position = drop.position;
-            itemsDropped++;
-        }
+        hiddenItem = BodyPartFactory.Instance.CreatePickup(_bodyPart);
+        hiddenItem.transform.position = drops[0].position;
     }
 }

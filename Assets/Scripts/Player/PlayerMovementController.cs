@@ -44,6 +44,7 @@ public class PlayerMovementController : MonoBehaviour
     public void Stop()
     {
         targetSpeed = 0;
+        speed = 0;
     }
     
     /*

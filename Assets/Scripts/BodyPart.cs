@@ -12,8 +12,12 @@ public class BodyPart : ScriptableObject
     public float health;
     public float decompositionRate;
     public BodyPartType type;
-    public BodyPartController bodyPartController;
-    public BodyPartPickup bodyPartPickup;
+    public GameObject front;
+    public GameObject back;
+    public GameObject left;
+    public GameObject right;
+    public GameObject dig;
+    public GameObject bodyPartPickup;
 
     public BodyPartData CreateData(string owner)
     {
