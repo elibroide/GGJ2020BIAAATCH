@@ -27,6 +27,7 @@ namespace Player
         {
             controller.detector.enteredAreaOfDig -= EnteredAreaOfDig;
             controller.detector.leftAreaOfDig -= LeftAreaOfDig;
+            SoundManager.StopWalk();
         }
 
         public override void Tick()
@@ -67,12 +68,13 @@ namespace Player
 
                 if (directionState == Direction.NONE)
                 {
-                    Debug.Log("AAAAA");
                     controller.view.SetState(AnimationState.IDLE);
+                    SoundManager.StopWalk();
                 }
                 else
                 {
                     Debug.Log(directionState);
+                    SoundManager.Walk();
                     controller.view.SetDirection(directionState);
                     controller.view.SetState(AnimationState.MOVING);
                 }
