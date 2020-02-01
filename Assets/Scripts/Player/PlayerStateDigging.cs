@@ -30,6 +30,7 @@ namespace Player
             controller.view.StartDigging();
 
             controller.transform.position = controller.digging.transform.position;
+            controller.digging.parent.HidePeek();
         }
 
         public override void LeaveState(PlayerState newState)
@@ -44,6 +45,7 @@ namespace Player
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                controller.digging.parent.Peek();
                 controller.DoneDigging();
                 return;
             }
