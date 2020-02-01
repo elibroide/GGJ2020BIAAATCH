@@ -9,9 +9,9 @@ public class PlayerMovementController : MonoBehaviour
     public float accelerateTime;
     public float decelerateTime;
 
-    [ReadOnly] public float targetSpeed;
-    [ReadOnly] public float speed;
-    [ReadOnly] public Vector2 direction;
+     public float targetSpeed;
+     public float speed;
+     public Vector2 direction;
 
     private float _currentTargetSpeed;
     private bool _currentIsAccelerating;

@@ -7,8 +7,8 @@ namespace Player
         public PlayerController controller;
         public float moveAmount = 5.0f;
         
-        [ReadOnly] public int clicks = 0;
-        [ReadOnly] public bool isLeft;
+         public int clicks = 0;
+         public bool isLeft;
 
         public float shakeOnDigDuration = 0.1f;
         public float shakeOnDigStrength = 0.3f;

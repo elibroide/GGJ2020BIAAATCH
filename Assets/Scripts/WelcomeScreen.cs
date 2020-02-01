@@ -54,7 +54,7 @@ public class WelcomeScreen : MonoBehaviour
     public Transform characterWinParent;
 
     [Space]
-    [ReadOnly] public WelcomeState state; 
+    public WelcomeState state; 
 
     private Tween _tween = null;
     

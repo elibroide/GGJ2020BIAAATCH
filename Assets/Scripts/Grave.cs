@@ -20,9 +20,9 @@ public class Grave : MonoBehaviour
 
     public Transform bubbleParent;
 
-    [ReadOnly] public BodyPartPickup hiddenItem;
-    [ReadOnly] public Bubble bubble;
-    [ReadOnly] public BodyPartData _bodyPart;
+    public BodyPartPickup hiddenItem;
+    public Bubble bubble;
+    public BodyPartData _bodyPart;
 
     void Start()
     {

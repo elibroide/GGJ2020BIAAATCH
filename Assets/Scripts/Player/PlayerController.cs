@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public PlayerState stateDigging;
     public PlayerState stateWalking;
     
-    [ReadOnly]
+    
     public PlayerState state;
 
     public float timeStarted;

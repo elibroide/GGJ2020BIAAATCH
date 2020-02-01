@@ -7,7 +7,7 @@ public class ItemOfLayers : MonoBehaviour
     public List<SpriteRenderer> sprites;
     public bool isAuto = false;
 
-    [ReadOnly] public OrderOfLayers parent;
+     public OrderOfLayers parent;
 
     void Awake()
     {

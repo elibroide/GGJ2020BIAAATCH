@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private Camera camera;
+    private Camera 
+        camera;
     public Transform target;
     private Vector3 lastPos;
     public float speed = 2;
@@ -36,18 +37,18 @@ public class CameraController : MonoBehaviour
         }
 
         _tween?.Kill();
-        _tween = transform.DOMove(new Vector3(targetPos.x, targetPos.y, transform.position.z), speed);
+        _tween = transform.DOMove(new Vector3(targetPos.x, targetPos.y, transform.position.z), speed).SetUpdate(UpdateType.Fixed);
         lastPos = target.position;
     }
 
     public void FocusIn()
     {
-        camera.DOOrthoSize(zoomIn, focusInDuration).SetEase(Ease.OutBack);
+        camera.DOOrthoSize(zoomIn, focusInDuration).SetEase(Ease.OutBack).SetUpdate(UpdateType.Fixed);;
     }
 
     public void FocusOut()
     {
-        camera.DOOrthoSize(zoomOut, focusOutDuration).SetEase(Ease.OutBack);
+        camera.DOOrthoSize(zoomOut, focusOutDuration).SetEase(Ease.OutBack).SetUpdate(UpdateType.Fixed);;
     }
 
     public void Shake(float duration, float strength)

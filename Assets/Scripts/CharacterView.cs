@@ -17,9 +17,9 @@ public enum AnimationState
 
 public class CharacterView: MonoBehaviour
 {
-    //[ReadOnly]
+    //
     public Direction direction = Direction.LEFT;
-    //[ReadOnly]
+    //
     public AnimationState state = AnimationState.MOVING;
     public AnimationClip[] animationClips;
     private Dictionary<Direction, Animation> animations = new Dictionary<Direction, Animation>();

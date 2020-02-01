@@ -11,7 +11,7 @@ public class BodyPartFactory : MonoBehaviour
     public Bubble bubblePrefab;
     public Transform itemsParent;
     
-    [ReadOnly]
+    
     public string[] names = new string[]
     {
 "Rogelio",
