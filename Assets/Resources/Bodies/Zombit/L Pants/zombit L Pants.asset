@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
   m_Name: zombit L Pants
   m_EditorClassIdentifier: 
-  group: 
-  health: 0
+  group: zombit
+  health: 100
   decompositionRate: 0
-  type: 0
-  front: {fileID: 0}
-  back: {fileID: 0}
-  left: {fileID: 0}
-  right: {fileID: 0}
+  type: 3
+  front: {fileID: 6792179080980554240, guid: 24888d6e311424203a57cc5cdf001c62, type: 3}
+  back: {fileID: 5524827714404109225, guid: 5ef05aac4727b41e081c8f5a0e5d3179, type: 3}
+  left: {fileID: 4334506210975478120, guid: f028af3aff45741809cba8962fdd96df, type: 3}
+  right: {fileID: 31691659160210588, guid: 94575c466446f489c97fd88a265f35ed, type: 3}
   dig: {fileID: 0}
-  bodyPartPickup: {fileID: 0}
+  bodyPartPickup: {fileID: 8057792536783518089, guid: c1f0c69bbef394223ba0b735cdb9f563,
+    type: 3}
