@@ -35,19 +35,10 @@ public class PlayerController : MonoBehaviour
         bodyController.AddedPart += BodyControllerOnAddedPart;
         bodyController.DropPart += BodyControllerOnDropPart;
         var factory = FindObjectOfType<BodyPartFactory>();
-        var other = factory.GetBodyPartOfGroup("other");
         var group = factory.GetBodyPartOfGroup(characterOriginalBody);
         foreach (var item in group)
         {
-            if (item.type == BodyPartType.Head)
-            {
-                var otherHead = other.FirstOrDefault(ii => ii.type == BodyPartType.Head);
-                bodyController.AddPart(otherHead, characterName);
-            }
-            else
-            {
-                bodyController.AddPart(item, characterName);
-            }
+            bodyController.AddPart(item, characterName);
         }
         ChangeState(stateWalking);
     }
@@ -84,7 +75,7 @@ public class PlayerController : MonoBehaviour
     
     private void BodyControllerOnDropPart(BodyPartData obj)
     {
-        view.RemovePart(obj.type);
+        view.RemovePart(obj.parent);
     }
 
     private void BodyControllerOnAddedPart(BodyPartData obj)

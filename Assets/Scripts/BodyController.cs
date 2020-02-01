@@ -91,31 +91,8 @@ public class BodyController : MonoBehaviour
     {
         if (body[type] != null)
         {
-            // body[type].transform.SetParent(null);
-            // var randomRotation = Quaternion.Euler(new Vector3(0, 0, UnityEngine.Random.Range(0, 35)));
-            // var direction = randomRotation * GetDirectionFromPart(type);
-            // var duration = 1.5f;
-            // var sequence = DOTween.Sequence();
-            // // sequence.Insert(0.1f, body[type].transform.DOLocalRotate(Vector3.forward * 450, duration - 0.2f).SetRelative(true));
-            // sequence.Insert(0,
-            //     body[type].transform.DOJump(transform.position + direction.normalized * 2, 0.75f, 2, duration));
-            // sequence.InsertCallback(duration + 0.5f, body[type].Rot);
             body[type] = null;
             DropPart?.Invoke(body[type]);
         }
-    }
-
-    private Vector3 GetDirectionFromPart(BodyPartType part)
-    {
-        switch (part)
-        {
-            case BodyPartType.HandLeft:
-            case BodyPartType.LegLeft:
-                return Vector3.right;
-            case BodyPartType.HandRight:
-            case BodyPartType.LegRight:
-                return Vector3.left;
-        }
-        return UnityEngine.Random.value > 0.5f ? Vector3.left : Vector3.right;
     }
 }

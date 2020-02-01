@@ -99,7 +99,9 @@ public class BodyPartFactory : MonoBehaviour
     public BodyPartPickup CreatePickup(BodyPartData data)
     {
         var pickupObject = Instantiate(data.parent.bodyPartPickup);
-        var pickup = pickupObject.AddComponent<BodyPartPickup>();
+        var pickup = Instantiate(pickupPrefab);
+        pickupObject.transform.SetParent(pickup.transform, false);
+        pickupObject.transform.localPosition = Vector3.zero;
         pickup.Init(data);
         return pickup;
     }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using DG.Tweening;
 using UnityEngine.Networking;
 
 public enum Direction
@@ -62,10 +63,48 @@ public class CharacterView: MonoBehaviour
         Replace("Right", part.type, part.right);
         // Replace("Dig", part.type, part.dig);
     }
-
-    public void RemovePart(BodyPartType type)
+    
+    private static Vector3 GetDirectionFromPart(BodyPartType part)
     {
-        var path = animationPathMap[type];
+        switch (part)
+        {
+            case BodyPartType.HandLeft:
+            case BodyPartType.LegLeft:
+                return Vector3.right;
+            case BodyPartType.HandRight:
+            case BodyPartType.LegRight:
+                return Vector3.left;
+        }
+        return UnityEngine.Random.value > 0.5f ? Vector3.left : Vector3.right;
+    }
+    
+    private static void Rot(Transform target)
+    {
+        var fx = target.GetComponentInChildren<SpriteRenderer>().gameObject.AddComponent<_2dxFX_DesintegrationFX>();
+        fx.Seed = UnityEngine.Random.value;
+        fx.Desintegration = 0;
+        fx._Color = Color.green;
+        DOVirtual.Float(0, 1, 2, number => fx.Desintegration = number);
+    }
+
+    public void RemovePart(BodyPart part)
+    {
+        var path = animationPathMap[part.type];
+        
+        // Toss a coin
+        var frontItem = FindDeep("Front/" + path);
+        var frontThing = Instantiate(part.front);
+        frontThing.transform.SetParent(null);
+        frontThing.transform.position = frontItem.transform.position;
+        var randomRotation = Quaternion.Euler(new Vector3(0, 0, UnityEngine.Random.Range(0, 35)));
+        var direction = randomRotation * GetDirectionFromPart(part.type);
+        var duration = 1.5f;
+        var sequence = DOTween.Sequence();
+        // sequence.Insert(0.1f, body[type].transform.DOLocalRotate(Vector3.forward * 450, duration - 0.2f).SetRelative(true));
+        sequence.Insert(0,
+            frontThing.transform.DOJump(transform.position + direction.normalized * 2, 0.75f, 2, duration));
+        sequence.InsertCallback(duration + 0.5f, () => Rot(frontThing.transform));
+        
         foreach (var animationType in new[]
         {
             "Front",

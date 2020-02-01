@@ -4,7 +4,6 @@ using UnityEngine;
 public class BodyPartPickup : MonoBehaviour
 {
     public BodyPartData data;
-    public SpriteRenderer sprite;
 
     public float hoverUp = 0.25f;
     public float hoverUpDuration = 0.5f;
