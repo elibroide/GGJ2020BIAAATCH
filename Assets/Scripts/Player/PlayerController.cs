@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerDigDetector detector;
     [FormerlySerializedAs("bodyPartsController")] public BodyController bodyController;
-    public SpriteRenderer sprite;
+    public CharacterView view;
     public Rigidbody2D rigidbody;
     
     [Header("States")] public AreaOfDig digging; 

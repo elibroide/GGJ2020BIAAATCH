@@ -13,9 +13,11 @@ namespace Player
         public float halfSpeed;
         public float lowSpeed = 0.1f;
 
+        private Vector2 _currentDirection;
+
         public override void EnterState(PlayerState previousState)
         {
-            controller.sprite.color = Color.white;
+            controller.view.SetState(AnimationState.IDLE);
             
             controller.detector.enteredAreaOfDig += EnteredAreaOfDig;
             controller.detector.leftAreaOfDig += LeftAreaOfDig;
@@ -37,23 +39,44 @@ namespace Player
                 return;
             }
             var direction = Vector2.zero;
+            Direction directionState = Direction.NONE;
             if (Input.GetKey(KeyCode.A))
             {
                 direction += Vector2.left;
+                directionState = Direction.LEFT;
             }
             if (Input.GetKey(KeyCode.W))
             {
                 direction += Vector2.up;
+                directionState = Direction.UP;
             }
             if (Input.GetKey(KeyCode.S))
             {
                 direction += Vector2.down;
+                directionState = Direction.DOWN;
             }
             if (Input.GetKey(KeyCode.D))
             {
                 direction += Vector2.right;
+                directionState = Direction.RIGHT;
             }
-            movementController.SetDirection(direction);
+
+            if (direction != _currentDirection)
+            {
+                movementController.SetDirection(direction);
+                _currentDirection = direction;
+
+                if (directionState == Direction.NONE)
+                {
+                    controller.view.SetState(AnimationState.IDLE);
+                }
+                else
+                {
+                    controller.view.SetState(AnimationState.MOVING);
+                    controller.view.SetDirection(directionState);
+                }
+            }
+            
             SetSpeed();
         }
 

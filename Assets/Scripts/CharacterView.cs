@@ -5,11 +5,11 @@ using System;
 
 public enum Direction
 {
-    UP,DOWN,RIGHT,LEFT
+    UP,DOWN,RIGHT,LEFT,NONE
 }
 public enum AnimationState
 {
-    MOVING,IDLE
+    MOVING,IDLE,DIG
 }
 
 public class CharacterView: MonoBehaviour
@@ -24,12 +24,12 @@ public class CharacterView: MonoBehaviour
     private Animation current;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-        animations[Direction.DOWN] = GameObject.Find("Front").GetComponent<Animation>();
-        animations[Direction.UP] = GameObject.Find("Back").GetComponent<Animation>();
-        animations[Direction.LEFT] = GameObject.Find("Left").GetComponent<Animation>();
-        animations[Direction.RIGHT] = GameObject.Find("Right").GetComponent<Animation>();
+        animations[Direction.DOWN] = transform.Find("Front").GetComponent<Animation>();
+        animations[Direction.UP] = transform.Find("Back").GetComponent<Animation>();
+        animations[Direction.LEFT] = transform.Find("Left").GetComponent<Animation>();
+        animations[Direction.RIGHT] = transform.Find("Right").GetComponent<Animation>();
         
         foreach (var ac in animationClips)
         {
@@ -40,7 +40,7 @@ public class CharacterView: MonoBehaviour
         SetState(state);
     }
 
-    private void SetState(AnimationState stateInput)
+    public void SetState(AnimationState stateInput)
     {
         state = stateInput;
         string directionString = direction == Direction.LEFT || direction == Direction.RIGHT ?
@@ -54,7 +54,7 @@ public class CharacterView: MonoBehaviour
 
 
 
-    private void SetDirection(Direction direction)
+    public void SetDirection(Direction direction)
     {
         foreach (KeyValuePair<Direction,Animation> item in animations)
         {

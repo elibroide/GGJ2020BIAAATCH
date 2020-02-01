@@ -27,7 +27,7 @@ namespace Player
             GUIController.Instance.ShowDiggingScreen();
             
             // Do animation of enter state
-            controller.sprite.color = Color.red;
+            controller.view.SetState(AnimationState.IDLE);
 
             controller.transform.position = controller.digging.transform.position;
         }
@@ -35,7 +35,7 @@ namespace Player
         public override void LeaveState(PlayerState newState)
         {
             // Leave animation of dig state
-            controller.sprite.transform.localPosition = Vector3.zero;
+            controller.view.transform.localPosition = Vector3.zero;
             Camera.main.GetComponent<CameraController>().FocusOut();
             GUIController.Instance.HideDiggingScreen();
         }
@@ -83,7 +83,7 @@ namespace Player
                     }
                     
                 }
-                controller.sprite.transform.localPosition = direction * moveAmount;
+                controller.view.transform.localPosition = direction * moveAmount;
             }
         }
     }
