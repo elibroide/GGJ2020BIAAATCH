@@ -20,6 +20,6 @@ MonoBehaviour:
   back: {fileID: 7887685604412341938, guid: 0c6b169e5859d44eabcee92924c88093, type: 3}
   left: {fileID: 7019210729183881409, guid: b909cb0be3ecc4624a65e7ccbfc5015b, type: 3}
   right: {fileID: 3859109905863850230, guid: cc707538a3e874f968449a5d85e7957d, type: 3}
-  dig: {fileID: 0}
+  dig: {fileID: 7911219353435601936, guid: 9abd24c2c2b3747b782c7e73509345a4, type: 3}
   bodyPartPickup: {fileID: 1864689308334017772, guid: 5e86c588babaa4655ae022fdfc3c63ae,
     type: 3}

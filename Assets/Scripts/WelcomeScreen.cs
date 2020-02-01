@@ -164,7 +164,6 @@ public class WelcomeScreen : MonoBehaviour
         {
             storyScreen.gameObject.SetActive(false);
             SceneManager.LoadScene("World", LoadSceneMode.Additive);
-            screenCamera.gameObject.SetActive(false);
             
             // Init stuff
             StartCoroutine(WaitForPlayer());
@@ -180,6 +179,7 @@ public class WelcomeScreen : MonoBehaviour
             player = FindObjectOfType<PlayerController>();
             yield return null;
         } while (player == null);
+        screenCamera.gameObject.SetActive(false);
         player.characterName = nameInput.text;
         player.characterOriginalBody = "normal";
 
