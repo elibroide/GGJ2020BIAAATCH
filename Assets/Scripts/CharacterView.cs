@@ -79,7 +79,7 @@ public class CharacterView: MonoBehaviour
         return UnityEngine.Random.value > 0.5f ? Vector3.left : Vector3.right;
     }
     
-    private static void Rot(Transform target)
+    public static void Rot(Transform target)
     {
         var fxList = new List<SpriteRenderer>();
         fxList.Add(target.GetComponent<SpriteRenderer>());

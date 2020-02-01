@@ -23,10 +23,12 @@ public class Grave : MonoBehaviour
     public BodyPartPickup hiddenItem;
     public Bubble bubble;
     public BodyPartData _bodyPart;
+    private float _startingHealth;
 
     void Start()
     {
         _bodyPart = BodyPartFactory.Instance.GetBodyPartData();
+        _startingHealth = health;
     }
 
     public void Peek()
@@ -65,5 +67,16 @@ public class Grave : MonoBehaviour
 
         hiddenItem = BodyPartFactory.Instance.CreatePickup(_bodyPart);
         hiddenItem.transform.position = drops[0].position;
+
+        DOVirtual.DelayedCall(45, Refill);
+    }
+
+    private void Refill()
+    {
+        _bodyPart = BodyPartFactory.Instance.GetBodyPartData();
+        isOpened = false;
+        health = _startingHealth;
+        closed.gameObject.SetActive(true);
+        opened.gameObject.SetActive(false);
     }
 }

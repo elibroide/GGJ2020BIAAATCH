@@ -165,6 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 225615104}
   - component: {fileID: 225615103}
+  - component: {fileID: 225615105}
   m_Layer: 0
   m_Name: Sequencer
   m_TagString: Untagged
@@ -184,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967f7c2665f5489d907e7e44a573e1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerType: 
   playerName: 
   screenCamera: {fileID: 0}
   timeToStart: 1
@@ -227,6 +229,73 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &225615105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225615102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c18aae5ad244d5b553a6b3dbf4d1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefab: {fileID: 0}
+  bubblePrefab: {fileID: 0}
+  itemsParent: {fileID: 0}
+  names:
+  - Rogelio
+  - In
+  - Dara
+  - Diana
+  - Lamonica
+  - Jeneva
+  - Korey
+  - Felicidad
+  - Hye
+  - Ilda
+  - Jolene
+  - Valeri
+  - Rosella
+  - Les
+  - Lauri
+  - Carma
+  - Leonore
+  - Alona
+  - Ada
+  - Lai
+  - Jill
+  - Galev
+  - Erwin
+  - Wilhelmina
+  - Aaron
+  - Broderick
+  - Bettina
+  - Hilario
+  - Kingv
+  - Zana
+  - Loriav
+  - Winonav
+  - Crystav
+  - Mathew
+  - Verdell
+  - Ora
+  - Grant
+  - Lyndsey
+  - Lorriane
+  - Kristyn
+  - Lynelle
+  - Cherrie
+  - Ardelia
+  - Curt
+  - Nicolas
+  - Rolando
+  - Frederick
+  - Annice
+  - Annalisa
+  - Ruthann
+  parts: []
 --- !u!1 &310494588
 GameObject:
   m_ObjectHideFlags: 0

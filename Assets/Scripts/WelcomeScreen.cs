@@ -84,6 +84,13 @@ public class WelcomeScreen : MonoBehaviour
     private Tween StartWelcomeAnimation()
     {
         title.gameObject.SetActive(false);
+        playerType = BodyPartFactory.Instance.GetGroup();
+        Debug.Log("YOYOYO " + playerType);
+        var items = BodyPartFactory.Instance.GetBodyPartOfGroup(playerType);
+        foreach (var item in items)
+        {
+            character.SetBodyPart(item);
+        }
         character.gameObject.SetActive(false);
         welcomeScreen.gameObject.SetActive(true);
         float currentDuration;
@@ -100,15 +107,6 @@ public class WelcomeScreen : MonoBehaviour
         sequence.InsertCallback(currentDuration + flash.timeToFlash, () =>
         {
             character.gameObject.SetActive(true);
-            
-            playerType = BodyPartFactory.Instance.GetGroup();
-            Debug.Log("YOYOYO " + playerType);
-            var items = BodyPartFactory.Instance.GetBodyPartOfGroup(playerType);
-            foreach (var item in items)
-            {
-                character.SetBodyPart(item);
-            }
-            
             character.SetState(AnimationState.IDLE);
             character.SetDirection(Direction.DOWN);
         });

@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -10,10 +11,17 @@ public class BodyPartPickup : MonoBehaviour
     
     private float _gracePeriod = 5f;
     private float _timePassed = 0;
+    private Tween _tween;
 
     void Start()
     {
         // transform.DOLocalMove(Vector3.up * hoverUp, hoverUpDuration).SetLoops(-1, LoopType.Yoyo);
+        _tween = DOVirtual.DelayedCall(30, () => Destroy(gameObject));
+    }
+
+    private void OnDestroy()
+    {
+        _tween?.Kill();
     }
 
     void Update()

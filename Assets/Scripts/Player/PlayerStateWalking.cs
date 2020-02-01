@@ -107,7 +107,7 @@ namespace Player
                 return;
             }
 
-            if (controller.detector.GetDig() != null)
+            if (controller.detector.GetDig() != null && !controller.detector.GetDig().parent.isOpened)
             {
                 movementController.Stop();
                 controller.StartDigging(controller.detector.GetDig());
