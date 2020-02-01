@@ -37,23 +37,34 @@ public class PlayerController : MonoBehaviour
         detector = GetComponent<PlayerDigDetector>();
     }
 
-    void Start()
+    private void Start()
     {
         timeStarted = Time.time;
         bodyController.AllDropped += BodyControllerOnAllDropped;
         bodyController.AddedPart += BodyControllerOnAddedPart;
         bodyController.DropPart += BodyControllerOnDropPart;
         var factory = FindObjectOfType<BodyPartFactory>();
+
+        var theName = characterName;
+        var welcome = FindObjectOfType<WelcomeScreen>();
+        if (welcome != null)
+        {
+            theName = welcome.playerName;
+        }
         var group = factory.GetBodyPartOfGroup(characterOriginalBody);
         foreach (var item in group)
         {
-            bodyController.AddPart(item, characterName);
+            bodyController.AddPart(item, theName);
         }
-        ChangeState(stateWalking);
+        ChangeState(stateWalking);   
     }
 
     void Update()
     {
+        if (state == null)
+        {
+            return;
+        }
         if (isNotMove)
         {
             return;

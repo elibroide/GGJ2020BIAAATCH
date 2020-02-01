@@ -149,6 +149,7 @@ public class WelcomeScreen : MonoBehaviour
             var text = nameInput.text;
             nameStory.text = text;
             nameGraveStory.text = text;
+            playerName = text;
             character.gameObject.SetActive(false);
             nameScreen.gameObject.SetActive(false);
             storyScreen.gameObject.SetActive(true);
@@ -180,8 +181,8 @@ public class WelcomeScreen : MonoBehaviour
             yield return null;
         } while (player == null);
         screenCamera.gameObject.SetActive(false);
-        player.characterName = nameInput.text;
-        player.characterOriginalBody = "normal";
+        // player.characterName = nameInput.text;
+        // player.characterOriginalBody = "normal";
 
         Debug.Log("LOGGED TO PLAYER");
         player.gameOver += PlayerOngameOver;
