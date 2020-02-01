@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
+  m_Name: White L Hand
+  m_EditorClassIdentifier: 
+  group: white
+  health: 100
+  decompositionRate: 0
+  type: 0
+  front: {fileID: 6325447324136869265, guid: 3d0a385cf167e47c59d3d01f401a3762, type: 3}
+  back: {fileID: 8580115999898225044, guid: 9f461c025d7d24353a645da22fee42ae, type: 3}
+  left: {fileID: 4885787848537164448, guid: 4b64668ac1e944c408be9e45636fd4e7, type: 3}
+  right: {fileID: 8302809702443901054, guid: 2c09addd975bc416fa35399950e59aaf, type: 3}
+  dig: {fileID: 0}
+  bodyPartPickup: {fileID: 6325447324136869265, guid: 3d0a385cf167e47c59d3d01f401a3762,
+    type: 3}

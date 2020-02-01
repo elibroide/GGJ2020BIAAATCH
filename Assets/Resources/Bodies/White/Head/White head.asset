@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
+  m_Name: White head
+  m_EditorClassIdentifier: 
+  group: white
+  health: 100
+  decompositionRate: 0
+  type: 0
+  front: {fileID: 6398980997391916190, guid: ae36dbbcddd094d03949b6962db10174, type: 3}
+  back: {fileID: 1356404349604703184, guid: 28d896e42319d4e46920afe6a64df7db, type: 3}
+  left: {fileID: 6718333157506955641, guid: 637202139046f4a21bd2bffec23cd0b3, type: 3}
+  right: {fileID: 880612060105681195, guid: 9eba86f115fe34333b41fb2d6d81517e, type: 3}
+  dig: {fileID: 0}
+  bodyPartPickup: {fileID: 6398980997391916190, guid: ae36dbbcddd094d03949b6962db10174,
+    type: 3}
