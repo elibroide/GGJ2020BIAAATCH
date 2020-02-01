@@ -20,12 +20,12 @@ namespace Player
 
         public BodyPartPickup GetPickup()
         {
+            SoundManager.PlaySound("pick up body part");
             return pickup.FirstOrDefault();
         }
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("PlayerDigDetector - Touch");
             var touchingDig = other.GetComponent<AreaOfDig>();
             if (touchingDig != null)
             {
@@ -44,7 +44,6 @@ namespace Player
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            Debug.Log("PlayerDigDetector - Leave");
             var touchingDig = other.GetComponent<AreaOfDig>();
             if (touchingDig != null)
             {
