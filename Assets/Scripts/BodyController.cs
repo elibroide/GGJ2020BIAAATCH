@@ -91,8 +91,9 @@ public class BodyController : MonoBehaviour
     {
         if (body[type] != null)
         {
+            var part = body[type];
             body[type] = null;
-            DropPart?.Invoke(body[type]);
+            DropPart?.Invoke(part);
         }
     }
 }

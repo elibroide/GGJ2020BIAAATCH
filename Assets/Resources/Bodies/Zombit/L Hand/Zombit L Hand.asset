@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
   m_Name: Zombit L Hand
   m_EditorClassIdentifier: 
-  group: 
-  health: 0
+  group: zombit
+  health: 100
   decompositionRate: 0
-  type: 0
-  front: {fileID: 0}
-  back: {fileID: 0}
-  left: {fileID: 0}
-  right: {fileID: 0}
+  type: 1
+  front: {fileID: 6325447324136869265, guid: 772466f18228f4e0fb0a1cc1d91726d8, type: 3}
+  back: {fileID: 8580115999898225044, guid: b9b3daa262bf3457aace49ee7b786578, type: 3}
+  left: {fileID: 4885787848537164448, guid: eceab3cbfdf6243c283fb0695d48c793, type: 3}
+  right: {fileID: 8302809702443901054, guid: be9fdc81de5534337a15a55038ae8d39, type: 3}
   dig: {fileID: 0}
-  bodyPartPickup: {fileID: 0}
+  bodyPartPickup: {fileID: 7397421172107377169, guid: a692e3a9406a34d9991c38cf7c3d6bd6,
+    type: 3}
