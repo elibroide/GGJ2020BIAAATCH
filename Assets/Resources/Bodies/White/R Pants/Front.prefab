@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a44c8b0a12dad4a4d8b36cbfb88d93bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1dbf874a03714139960b1d4c1c2bd2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e6f4faf940b154a389760ae2451014c6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28528da62608748e8b90cc95fe55ecde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -292,7 +292,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cbd5a1040200d42248d5bc36ef3356ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cea8ea1bffa22434ea09806e441fd113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5964554924190227909}
   m_Layer: 0
-  m_Name: R Pants
+  m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
