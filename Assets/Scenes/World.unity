@@ -10659,6 +10659,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 277580887}
     m_Modifications:
+    - target: {fileID: 3368293552055578434, guid: e5f1e796e9e4e481885a13263ed9cd25,
+        type: 3}
+      propertyPath: totalGameTime
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7515054537870181881, guid: e5f1e796e9e4e481885a13263ed9cd25,
         type: 3}
       propertyPath: light

@@ -203,7 +203,7 @@ public class WelcomeScreen : MonoBehaviour
                 player.view.SetDirection(Direction.DOWN);
                 player.view.transform.SetParent(characterWinParent);
                 player.view.transform.localPosition = Vector3.zero;
-                player.view.transform.localScale = Vector3.zero;
+                player.view.transform.localScale = Vector3.one;
                 endWinScreen.gameObject.SetActive(true);
             }
             else

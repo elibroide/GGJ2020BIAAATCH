@@ -62,7 +62,11 @@ public class PlayerController : MonoBehaviour
         {
             isNotMove = true;
             GetComponent<PlayerMovementController>().Stop();
-            gameOver?.Invoke(true);
+            ChangeState(stateWalking);
+            view.SetState(AnimationState.IDLE);
+            view.SetDirection(Direction.DOWN);
+
+            DOVirtual.DelayedCall(0.3f, () => { gameOver?.Invoke(true); });
             return;
         }
         state.Tick();
