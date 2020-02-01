@@ -73,7 +73,6 @@ namespace Player
                 }
                 else
                 {
-                    Debug.Log(directionState);
                     SoundManager.Walk();
                     controller.view.SetDirection(directionState);
                     controller.view.SetState(AnimationState.MOVING);

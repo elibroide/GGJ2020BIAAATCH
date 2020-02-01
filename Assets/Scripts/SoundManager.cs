@@ -29,7 +29,6 @@ public class SoundManager : MonoBehaviour
 
     internal static void Walk()
     {
-        Debug.Log("WALK");
         if (!_sourceWalk.isPlaying)
         {
             _sourceWalk.Play();
@@ -47,7 +46,6 @@ public class SoundManager : MonoBehaviour
 
     internal static void StopWalk()
     {
-        Debug.Log("StopWalk");
         _sourceWalk.Stop();
     }
 }

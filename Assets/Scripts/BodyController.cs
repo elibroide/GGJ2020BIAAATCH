@@ -50,7 +50,7 @@ public class BodyController : MonoBehaviour
         
         var deadParts = new List<BodyPartData>();
         light.UpdateSize(body[BodyPartType.Head] == null ? 0 : body[BodyPartType.Head].health / 100f);
-        Debug.Log(body[BodyPartType.Head].health);
+        
         foreach (var part in body.Values.Where(value => value != null))
         {
             part.Decompose(delta);
@@ -70,11 +70,8 @@ public class BodyController : MonoBehaviour
                 foreach(var part in deadParts)
                 {
                     DropPartFromBody(part.type);
-                    Debug.Log(part.ownerName);
                     bodiesToDrop.Add(part);
                 }
-                Debug.Log(bodiesToDrop);
-                Debug.Log(bodiesToDrop.Count);
                 
                 OnDropParts?.Invoke(bodiesToDrop);
             }

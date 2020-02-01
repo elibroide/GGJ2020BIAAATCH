@@ -48,7 +48,6 @@ public class CharacterView: MonoBehaviour
 
         foreach (var ac in animationClips)
         {
-            Debug.Log(ac.name);
             clips[ac.name] = ac;
         }
 
@@ -157,7 +156,7 @@ public class CharacterView: MonoBehaviour
             "Side_" : "Front_";
         string stateString = stateInput == AnimationState.IDLE ? "Idle" : "Move";
         string key = directionString + stateString;
-        Debug.Log(key);
+        
         current.clip = clips[key];
         
         current.Play();
