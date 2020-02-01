@@ -305,7 +305,6 @@ MonoBehaviour:
   sourceWalk: {fileID: 4116375693884786728}
   audioClips:
   - {fileID: 8300000, guid: ed41fcad0bfeb43fbb89e943de6521f0, type: 3}
-  - {fileID: 8300000, guid: baeb75072e054450695b61b1fa0f1988, type: 3}
   - {fileID: 8300000, guid: 1183cb12d83094448a06fc396b851c14, type: 3}
   - {fileID: 8300000, guid: c87c68961ca7b427188dcca0ed48b69f, type: 3}
   - {fileID: 8300000, guid: 8befd3b86061840af82729f1266367f2, type: 3}
