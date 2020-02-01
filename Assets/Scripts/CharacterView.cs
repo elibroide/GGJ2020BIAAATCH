@@ -51,9 +51,6 @@ public class CharacterView: MonoBehaviour
         current.clip = clips[key];
         current.Play();
     }
-
-
-
     public void SetDirection(Direction direction)
     {
         foreach (KeyValuePair<Direction,Animation> item in animations)

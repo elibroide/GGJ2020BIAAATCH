@@ -7,6 +7,8 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    public string characterName = "eli";
+    public string characterOriginalBody;
     public PlayerDigDetector detector;
     [FormerlySerializedAs("bodyPartsController")] public BodyController bodyController;
     public CharacterView view;
@@ -31,10 +33,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         var factory = FindObjectOfType<BodyPartFactory>();
-        var group = factory.GetBodyPartOfGroup("normal");
+        var group = factory.GetBodyPartOfGroup(characterOriginalBody);
         foreach (var item in group)
         {
-            bodyController.AddPart(item, "Eli");
+            bodyController.AddPart(item, characterName);
         }
     }
 
