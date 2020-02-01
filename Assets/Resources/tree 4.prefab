@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 0}
+  - {fileID: 5917544632424490138}
   isAuto: 0
   parent: {fileID: 0}
 --- !u!1 &4092302158565397744
