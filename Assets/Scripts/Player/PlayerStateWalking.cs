@@ -60,7 +60,6 @@ namespace Player
                 direction += Vector2.right;
                 directionState = Direction.RIGHT;
             }
-
             if (direction != _currentDirection)
             {
                 movementController.SetDirection(direction);
@@ -68,12 +67,14 @@ namespace Player
 
                 if (directionState == Direction.NONE)
                 {
+                    Debug.Log("AAAAA");
                     controller.view.SetState(AnimationState.IDLE);
                 }
                 else
                 {
-                    controller.view.SetState(AnimationState.MOVING);
+                    Debug.Log(directionState);
                     controller.view.SetDirection(directionState);
+                    controller.view.SetState(AnimationState.MOVING);
                 }
             }
             

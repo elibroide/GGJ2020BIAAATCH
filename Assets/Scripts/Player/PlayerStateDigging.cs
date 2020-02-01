@@ -25,9 +25,9 @@ namespace Player
             isLeft = false;
             Camera.main.GetComponent<CameraController>().FocusIn();
             GUIController.Instance.ShowDiggingScreen();
-            
+
             // Do animation of enter state
-            controller.view.SetState(AnimationState.IDLE);
+            controller.view.StartDigging();
 
             controller.transform.position = controller.digging.transform.position;
         }
@@ -83,6 +83,7 @@ namespace Player
                     }
                     
                 }
+                controller.view.Dig(isLeftClicked);
                 controller.view.transform.localPosition = direction * moveAmount;
             }
         }
