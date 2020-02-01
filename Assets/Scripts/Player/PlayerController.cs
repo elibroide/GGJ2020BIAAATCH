@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         bodyController = GetComponent<BodyController>();
         detector = GetComponent<PlayerDigDetector>();
-        ChangeState(stateWalking);
+        
     }
 
     void Start()
@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
         {
             bodyController.AddPart(item, characterName);
         }
+        ChangeState(stateWalking);
     }
 
     void Update()

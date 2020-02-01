@@ -1172,7 +1172,7 @@ Animation:
   m_GameObject: {fileID: 1854365535404868878}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: aa897ac9ac5b846a8b728f4516e24857, type: 2}
+  m_Animation: {fileID: 7400000, guid: 14776025e6087417098e4a3bf54de5e4, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 1e39fb1447a7c462aa8db18dc9449fdd, type: 2}
   - {fileID: 7400000, guid: 62ada865cb1174997886d58c7c4dc72a, type: 2}
@@ -2636,7 +2636,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 1.2
-      minScalar: 0.5
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7389,7 +7389,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 1.2
-      minScalar: 0.5
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
