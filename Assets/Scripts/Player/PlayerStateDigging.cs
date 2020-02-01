@@ -9,6 +9,9 @@ namespace Player
         
         [ReadOnly] public int clicks = 0;
         [ReadOnly] public bool isLeft;
+
+        public float shakeOnDigDuration = 0.1f;
+        public float shakeOnDigStrength = 0.3f;
         
         private void Awake()
         {
@@ -24,30 +27,39 @@ namespace Player
             GUIController.Instance.ShowDiggingScreen();
             
             // Do animation of enter state
-            controller.sprite.color = Color.red;
+            controller.view.SetState(AnimationState.IDLE);
 
+            controller.transform.position = controller.digging.transform.position;
         }
 
         public override void LeaveState(PlayerState newState)
         {
             // Leave animation of dig state
-            controller.sprite.transform.localPosition = Vector3.zero;
+            controller.view.transform.localPosition = Vector3.zero;
             Camera.main.GetComponent<CameraController>().FocusOut();
             GUIController.Instance.HideDiggingScreen();
         }
 
         public override void Tick()
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                controller.DoneDigging();
+                return;
+            }
             controller.bodyController.Tick();
+            var isLeftClicked = false;
             var direction = Vector3.zero;
             var isHit = false;
             if (clicks == 0 || isLeft)
             {
+                isLeftClicked = true;
                 isHit = Input.GetKeyDown(KeyCode.A);
                 direction = Vector3.left;
             }
             if (clicks == 0 || !isLeft)
             {
+                isLeftClicked = false;
                 isHit = Input.GetKeyDown(KeyCode.D);
                 direction = Vector3.right;
             }
@@ -58,13 +70,20 @@ namespace Player
                 isLeft = !isLeft;
                 if (controller.digging.parent != null)
                 {
-                    controller.digging.parent.TakeHit(1);
-                    if (controller.digging.parent.isDead)
+                    if (controller.bodyController.body
+                            [isLeftClicked ? BodyPartType.HandLeft : BodyPartType.HandRight] != null)
                     {
-                        controller.DoneDigging();
-                    } 
+                        FindObjectOfType<CameraController>().Shake(shakeOnDigDuration, shakeOnDigStrength);
+                        controller.digging.parent.TakeHit(1);
+                        if (controller.digging.parent.isOpened)
+                        {
+                            controller.digging.parent.HidePeek();
+                            controller.DoneDigging();
+                        } 
+                    }
+                    
                 }
-                controller.sprite.transform.localPosition = direction * moveAmount;
+                controller.view.transform.localPosition = direction * moveAmount;
             }
         }
     }

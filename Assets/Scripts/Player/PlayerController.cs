@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerDigDetector detector;
     [FormerlySerializedAs("bodyPartsController")] public BodyController bodyController;
-    public SpriteRenderer sprite;
+    public CharacterView view;
     public Rigidbody2D rigidbody;
     
     [Header("States")] public AreaOfDig digging; 
@@ -21,12 +21,15 @@ public class PlayerController : MonoBehaviour
     [ReadOnly]
     public PlayerState state;
 
-    void Start()
+    void Awake()
     {
         bodyController = GetComponent<BodyController>();
         detector = GetComponent<PlayerDigDetector>();
-        state = stateWalking;
+        ChangeState(stateWalking);
+    }
 
+    void Start()
+    {
         var factory = FindObjectOfType<BodyPartFactory>();
         var group = factory.GetBodyPartOfGroup("normal");
         foreach (var item in group)
@@ -42,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeState(PlayerState newState)
     {
-        state.LeaveState(newState);
+        state?.LeaveState(newState);
         newState.EnterState(state);
         state = newState;
     }
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     public void PickUp(BodyPartPickup detectorPickup)
     {
-        detectorPickup.PickedUp();
         bodyController.AddPart(detectorPickup.data.parent, detectorPickup.data.ownerName);
+        detectorPickup.PickedUp();
     }
 }

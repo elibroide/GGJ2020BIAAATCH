@@ -18,5 +18,4 @@ MonoBehaviour:
   type: 0
   bodyPartController: {fileID: 1338163180149082746, guid: a77121aaa15bb44da8481f8ab41dc9ff,
     type: 3}
-  bodyPartPickup: {fileID: 2807619082410858887, guid: 844ee7a2850384c158cac1b8b13c897c,
-    type: 3}
+  bodyPartPickup: {fileID: 21300000, guid: 1324368655d034f4dbd599a88c5ce778, type: 3}

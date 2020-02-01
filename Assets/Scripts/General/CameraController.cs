@@ -10,11 +10,18 @@ public class CameraController : MonoBehaviour
     private Vector3 lastPos;
     public float speed = 2;
     public float distance = 1;
+    public float zoomIn = 4;
+    public float zoomOut = 5;
+    public float focusInDuration = 1;
+    public float focusOutDuration = 1;
+
+    private Tween _tween;
 
     private void Start()
     {
         camera = GetComponent<Camera>();
         lastPos = target.position;
+        camera.orthographicSize = zoomOut;
     }
 
     // Update is called once per frame
@@ -27,21 +34,25 @@ public class CameraController : MonoBehaviour
             // moving
             targetPos += diff * distance;
         }
-        
 
-        transform.DOMoveX(targetPos.x, speed);
-        transform.DOMoveY(targetPos.y, speed);
+        _tween?.Kill();
+        _tween = transform.DOMove(new Vector3(targetPos.x, targetPos.y, transform.position.z), speed);
         lastPos = target.position;
     }
 
     public void FocusIn()
     {
-        camera.DOOrthoSize(4, 1);
+        camera.DOOrthoSize(zoomIn, focusInDuration).SetEase(Ease.OutBack);
     }
 
     public void FocusOut()
     {
-        camera.DOOrthoSize(5, 1);
+        camera.DOOrthoSize(zoomOut, focusOutDuration).SetEase(Ease.OutBack);
+    }
+
+    public void Shake(float duration, float strength)
+    {
+        transform.DOShakePosition(duration, Vector3.one * strength);
     }
 
 }

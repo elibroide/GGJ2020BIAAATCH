@@ -8,14 +8,25 @@ namespace Player
     {
         public PlayerController controller;
         public PlayerMovementController movementController;
+        
+        public float fullSpeed;
+        public float halfSpeed;
+        public float lowSpeed = 0.1f;
+
+        private Vector2 _currentDirection;
 
         public override void EnterState(PlayerState previousState)
         {
-            controller.sprite.color = Color.white;
+            controller.view.SetState(AnimationState.IDLE);
+            
+            controller.detector.enteredAreaOfDig += EnteredAreaOfDig;
+            controller.detector.leftAreaOfDig += LeftAreaOfDig;
         }
 
         public override void LeaveState(PlayerState newState)
         {
+            controller.detector.enteredAreaOfDig -= EnteredAreaOfDig;
+            controller.detector.leftAreaOfDig -= LeftAreaOfDig;
         }
 
         public override void Tick()
@@ -28,42 +39,89 @@ namespace Player
                 return;
             }
             var direction = Vector2.zero;
+            Direction directionState = Direction.NONE;
             if (Input.GetKey(KeyCode.A))
             {
                 direction += Vector2.left;
+                directionState = Direction.LEFT;
             }
             if (Input.GetKey(KeyCode.W))
             {
                 direction += Vector2.up;
+                directionState = Direction.UP;
             }
             if (Input.GetKey(KeyCode.S))
             {
                 direction += Vector2.down;
+                directionState = Direction.DOWN;
             }
             if (Input.GetKey(KeyCode.D))
             {
                 direction += Vector2.right;
+                directionState = Direction.RIGHT;
             }
-            movementController.SetDirection(direction);
+
+            if (direction != _currentDirection)
+            {
+                movementController.SetDirection(direction);
+                _currentDirection = direction;
+
+                if (directionState == Direction.NONE)
+                {
+                    controller.view.SetState(AnimationState.IDLE);
+                }
+                else
+                {
+                    controller.view.SetState(AnimationState.MOVING);
+                    controller.view.SetDirection(directionState);
+                }
+            }
+            
+            SetSpeed();
+        }
+
+        private void SetSpeed()
+        {
+            // Set speed
+            var legCount = controller.bodyController.body[BodyPartType.LegLeft] != null ? 1 : 0;
+            legCount += controller.bodyController.body[BodyPartType.LegRight] != null ? 1 : 0;
+            var speed = fullSpeed;
+            if (legCount == 0)
+            {
+                speed = lowSpeed;
+            } else if (legCount == 1)
+            {
+                speed = halfSpeed;
+            }
+            movementController.SetMaxSpeed(speed);
         }
 
         private void CheckAction()
         {
-            if (controller.detector.pickup != null)
+            if (controller.detector.GetPickup() != null)
             {
                 // Pick that sh#@@! up
-                controller.PickUp(controller.detector.pickup);
+                controller.PickUp(controller.detector.GetPickup());
                 return;
             }
 
-            if (controller.detector.touchingDig != null)
+            if (controller.detector.GetDig() != null)
             {
                 movementController.Stop();
-                controller.StartDigging(controller.detector.touchingDig);
+                controller.StartDigging(controller.detector.GetDig());
                 return;
             }
             
             // Create a hole and start digging it?
+        }
+        
+        private void EnteredAreaOfDig(AreaOfDig obj)
+        {
+            
+        }
+        
+        private void LeftAreaOfDig(AreaOfDig obj)
+        {
         }
     }
 }
