@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     [ReadOnly]
     public PlayerState state;
 
-    private float timeStarted;
+    public float timeStarted;
 
     public event Action<bool> gameOver;
 

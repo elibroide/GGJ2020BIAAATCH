@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour
 {
     public static GUIController Instance;
     public Dictionary<BodyPartType, GuiBodyPart> partsGUI;
     public DiggingScreen diggingScreen;
+    public Text timer;
 
     void Awake()
     {
@@ -23,6 +25,13 @@ public class GUIController : MonoBehaviour
     // {
         
     // }
+
+    public void Update()
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        var timeLeft = Mathf.FloorToInt(player.totalGameTime - (Time.time - player.timeStarted));
+        timer.text = timeLeft.ToString();
+    }
     
     public void UpdateBodyState(Dictionary<BodyPartType, BodyPartData> body)
     {
