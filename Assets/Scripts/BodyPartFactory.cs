@@ -6,7 +6,9 @@ using Random = UnityEngine.Random;
 public class BodyPartFactory : MonoBehaviour
 {
     public static BodyPartFactory Instance;
-    
+
+    public BodyPartPickup pickupPrefab;
+    public Bubble bubblePrefab;
     public Transform itemsParent;
     
     [ReadOnly]
@@ -83,17 +85,28 @@ public class BodyPartFactory : MonoBehaviour
     {
         return parts[Random.Range(0, parts.Length)];
     }
+    
+    public BodyPartData GetBodyPartData()
+    {
+        return parts[Random.Range(0, parts.Length)].CreateData(GetName());
+    }
 
     public string GetName()
     {
         return names[Random.Range(0, names.Length)];
     }
 
-    public BodyPartPickup CreatePickup()
+    public BodyPartPickup CreatePickup(BodyPartData data)
     {
-        var part = GetBodyPart();
-        var pickup = Instantiate(part.bodyPartPickup).GetComponent<BodyPartPickup>();
-        pickup.data = part.CreateData(GetName());
+        var pickup = Instantiate(pickupPrefab);
+        pickup.Init(data);
         return pickup;
+    }
+
+    public Bubble CreateBubble(BodyPartData data)
+    {
+        var bubble = Instantiate(bubblePrefab);
+        bubble.Init(data);
+        return bubble;
     }
 }

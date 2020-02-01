@@ -16,10 +16,15 @@ namespace Player
         public override void EnterState(PlayerState previousState)
         {
             controller.sprite.color = Color.white;
+            
+            controller.detector.enteredAreaOfDig += EnteredAreaOfDig;
+            controller.detector.leftAreaOfDig += LeftAreaOfDig;
         }
 
         public override void LeaveState(PlayerState newState)
         {
+            controller.detector.enteredAreaOfDig -= EnteredAreaOfDig;
+            controller.detector.leftAreaOfDig -= LeftAreaOfDig;
         }
 
         public override void Tick()
@@ -85,6 +90,15 @@ namespace Player
             }
             
             // Create a hole and start digging it?
+        }
+        
+        private void EnteredAreaOfDig(AreaOfDig obj)
+        {
+            
+        }
+        
+        private void LeftAreaOfDig(AreaOfDig obj)
+        {
         }
     }
 }

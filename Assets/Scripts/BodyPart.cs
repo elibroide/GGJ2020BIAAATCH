@@ -13,7 +13,7 @@ public class BodyPart : ScriptableObject
     public float decompositionRate;
     public BodyPartType type;
     public BodyPartController bodyPartController;
-    public BodyPartPickup bodyPartPickup;
+    public Sprite bodyPartPickup;
 
     public BodyPartData CreateData(string owner)
     {
