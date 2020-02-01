@@ -18,7 +18,6 @@ public class DiminishingLight : MonoBehaviour
 
     public void UpdateSize(float percent)
     {
-        float scaleFactor = percent * (9.5f) + 0.5f;
-        transform.DOScale(Vector3.one * scaleFactor,0.5f);
+        transform.localScale = Vector3.Lerp(Vector3.one * smallest, Vector3.one * largest, percent);
     }
 }
