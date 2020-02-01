@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
+  m_Name: white L Pants
+  m_EditorClassIdentifier: 
+  group: white
+  health: 100
+  decompositionRate: 0
+  type: 0
+  front: {fileID: 6792179080980554240, guid: 42c004ecd9d314f4cad0a42c6b3f1065, type: 3}
+  back: {fileID: 5524827714404109225, guid: 576fb142cbc0f461c870f93011356e68, type: 3}
+  left: {fileID: 4334506210975478120, guid: e76682e34292441b3b00fc3899567ebf, type: 3}
+  right: {fileID: 31691659160210588, guid: 7100b5e69579a4b9b8f4ff806165d68f, type: 3}
+  dig: {fileID: 0}
+  bodyPartPickup: {fileID: 6792179080980554240, guid: 42c004ecd9d314f4cad0a42c6b3f1065,
+    type: 3}
