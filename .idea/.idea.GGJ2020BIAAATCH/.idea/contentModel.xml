@@ -450,6 +450,7 @@
           <e p="BodyPartPickup.cs" t="Include" />
           <e p="BodyPartType.cs" t="Include" />
           <e p="Bubble.cs" t="Include" />
+          <e p="CharacterView.cs" t="Include" />
           <e p="DiminishingLight.cs" t="Include" />
           <e p="General" t="Include">
             <e p="CameraController.cs" t="Include" />
