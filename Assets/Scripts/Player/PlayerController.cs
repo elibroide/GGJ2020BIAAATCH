@@ -110,6 +110,6 @@ public class PlayerController : MonoBehaviour
     private void BodyControllerOnAllDropped()
     {
         this.isNotMove = true;
-        gameOver?.Invoke(false);
+        DOVirtual.DelayedCall(1.5f, () => { gameOver?.Invoke(false); });
     }
 }

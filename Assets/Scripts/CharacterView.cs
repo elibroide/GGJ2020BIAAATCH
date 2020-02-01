@@ -61,7 +61,7 @@ public class CharacterView: MonoBehaviour
         Replace("Back", part.type, part.back);
         Replace("Left", part.type, part.left);
         Replace("Right", part.type, part.right);
-        // Replace("Dig", part.type, part.dig);
+        Replace("Dig", part.type, part.back);
     }
     
     private static Vector3 GetDirectionFromPart(BodyPartType part)
@@ -117,6 +117,7 @@ public class CharacterView: MonoBehaviour
             "Back",
             "Left",
             "Right",
+            "Dig",
         })
         {
             FindDeep(animationType + "/" + path).gameObject.SetActive(false);
