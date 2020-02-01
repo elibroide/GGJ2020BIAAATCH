@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotMove: 0
-  totalGameTime: 180
+  totalGameTime: 120
   characterName: eli
   characterOriginalBody: zombit
   detector: {fileID: 7297192389911539562}
