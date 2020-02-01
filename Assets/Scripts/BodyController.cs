@@ -81,7 +81,7 @@ public class BodyController : MonoBehaviour
 
     private bool IsGameOver()
     {
-        return body.Count(elem => elem.Value != null) == 0;
+        return body[BodyPartType.Head] == null;
     }
 
     private void DropPartFromBody(BodyPartType type)
