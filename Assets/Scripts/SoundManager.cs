@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class SoundManager : MonoBehaviour
 {
     public AudioSource musicPlayer;
     public GameObject sourceGO;
+    public AudioSource sourceWalk;
     public AudioClip[] audioClips;
-    private int index = 0;
+    private static int index = 0;
+    private static AudioSource _sourceWalk;
     
     static Dictionary<string, AudioClip> soundsMap = new Dictionary<string, AudioClip>();
-    static AudioSource[] sources;
+    private static AudioSource[] sources;
     // Use this for initialization
+
     void Awake()
     {
         sources = sourceGO.GetComponents<AudioSource>();
@@ -20,13 +24,30 @@ public class SoundManager : MonoBehaviour
         {
             soundsMap[ac.name] = ac;
         }
-
-        musicPlayer.clip = soundsMap["music"];
-        musicPlayer.Play();
+        _sourceWalk = sourceWalk;
     }
 
-    //static public PlaySound(string name)
-    //{
+    internal static void Walk()
+    {
+        Debug.Log("WALK");
+        if (!_sourceWalk.isPlaying)
+        {
+            _sourceWalk.Play();
+        }
+        
+    }
 
-    //}
+    static public void PlaySound(string name)
+    {
+        sources[index].clip = soundsMap[name];
+        sources[index].Play();
+        index++;
+        if (index == sources.Length) index = 0;
+    }
+
+    internal static void StopWalk()
+    {
+        Debug.Log("StopWalk");
+        _sourceWalk.Stop();
+    }
 }
