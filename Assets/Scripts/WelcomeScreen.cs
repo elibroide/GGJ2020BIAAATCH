@@ -138,6 +138,7 @@ public class WelcomeScreen : MonoBehaviour
             var text = nameInput.text;
             nameStory.text = text;
             // nameGraveStory.text = text;
+            character.gameObject.SetActive(false);
             nameScreen.gameObject.SetActive(false);
             storyScreen.gameObject.SetActive(true);
         });
