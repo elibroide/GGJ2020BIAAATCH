@@ -15,7 +15,7 @@ MonoBehaviour:
   group: white
   health: 100
   decompositionRate: 0
-  type: 0
+  type: 1
   front: {fileID: 6325447324136869265, guid: 3d0a385cf167e47c59d3d01f401a3762, type: 3}
   back: {fileID: 8580115999898225044, guid: 9f461c025d7d24353a645da22fee42ae, type: 3}
   left: {fileID: 4885787848537164448, guid: 4b64668ac1e944c408be9e45636fd4e7, type: 3}

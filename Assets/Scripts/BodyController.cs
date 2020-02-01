@@ -23,6 +23,7 @@ public class BodyController : MonoBehaviour
     };
     Action<List<BodyPartData>> OnDropParts;
 
+    public event Action AllDropped;
     public event Action<BodyPartData> DropPart;
     public event Action<BodyPartData> AddedPart;
     private GUIController _guiController;
@@ -61,6 +62,7 @@ public class BodyController : MonoBehaviour
             if (IsGameOver(deadParts))
             {
                 //game over
+                AllDropped?.Invoke();
             }
             else
             {

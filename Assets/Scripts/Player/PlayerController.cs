@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -8,6 +9,8 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool isNotMove = false;
+    public float totalGameTime = 5;
     public string characterName = "eli";
     public string characterOriginalBody = "zombit";
     public PlayerDigDetector detector;
@@ -24,6 +27,10 @@ public class PlayerController : MonoBehaviour
     [ReadOnly]
     public PlayerState state;
 
+    private float timeStarted;
+
+    public event Action<bool> gameOver;
+
     void Awake()
     {
         bodyController = GetComponent<BodyController>();
@@ -32,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        timeStarted = Time.time;
+        bodyController.AllDropped += BodyControllerOnAllDropped;
         bodyController.AddedPart += BodyControllerOnAddedPart;
         bodyController.DropPart += BodyControllerOnDropPart;
         var factory = FindObjectOfType<BodyPartFactory>();
@@ -45,6 +54,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (isNotMove)
+        {
+            return;
+        }
+        if (Time.time - timeStarted > totalGameTime)
+        {
+            isNotMove = true;
+            GetComponent<PlayerMovementController>().Stop();
+            gameOver?.Invoke(true);
+            return;
+        }
         state.Tick();
     }
 
@@ -81,5 +101,10 @@ public class PlayerController : MonoBehaviour
     private void BodyControllerOnAddedPart(BodyPartData obj)
     {
         view.SetBodyPart(obj.parent);
+    }
+    
+    private void BodyControllerOnAllDropped()
+    {
+        gameOver?.Invoke(false);
     }
 }

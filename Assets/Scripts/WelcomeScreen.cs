@@ -18,7 +18,7 @@ public enum WelcomeState
 public class WelcomeScreen : MonoBehaviour
 {
     public string playerName;
-    
+    public Camera screenCamera;
     [Space]
     
     public float timeToStart = 0;
@@ -46,6 +46,11 @@ public class WelcomeScreen : MonoBehaviour
     public Text nameStory;
     public Text nameGraveStory;
 
+    [Space] 
+    public Transform endLoseScreen;
+    public Transform endWinScreen;
+    public Transform characterWinParent;
+
     [Space]
     [ReadOnly] public WelcomeState state; 
 
@@ -53,11 +58,15 @@ public class WelcomeScreen : MonoBehaviour
     
     private void Start()
     {
+        screenCamera = Camera.main;
+        
         state = WelcomeState.Start;
         // Init
         nameInput.text = "";
         storyScreen.gameObject.SetActive(false);
         nameScreen.gameObject.SetActive(false);
+        endLoseScreen.gameObject.SetActive(false);
+        endWinScreen.gameObject.SetActive(false);
         
         foreach (var text in texts)
         {
@@ -137,7 +146,7 @@ public class WelcomeScreen : MonoBehaviour
             nameInput.gameObject.SetActive(false);
             var text = nameInput.text;
             nameStory.text = text;
-            // nameGraveStory.text = text;
+            nameGraveStory.text = text;
             character.gameObject.SetActive(false);
             nameScreen.gameObject.SetActive(false);
             storyScreen.gameObject.SetActive(true);
@@ -157,7 +166,34 @@ public class WelcomeScreen : MonoBehaviour
             var player = FindObjectOfType<PlayerController>();
             player.name = nameInput.text;
             player.characterOriginalBody = "normal";
+            
+            player.gameOver += PlayerOngameOver;
         });
+    }
+
+    private void PlayerOngameOver(bool isWin)
+    {
+        var sequence = DOTween.Sequence();
+        sequence.Insert(0, flash.DoFlash());
+        if (isWin)
+        {
+            sequence.InsertCallback(flash.timeToFlash, () =>
+            {
+                var player = FindObjectOfType<PlayerController>();
+                player.view.SetState(AnimationState.IDLE);
+                player.view.SetDirection(Direction.DOWN);
+                player.view.transform.SetParent(characterWinParent);
+                player.view.transform.localPosition = Vector3.zero;
+                endWinScreen.gameObject.SetActive(true);
+            });
+        }
+        else
+        {
+            sequence.InsertCallback(flash.timeToFlash, () =>
+            {
+                endLoseScreen.gameObject.SetActive(true);
+            });
+        }
     }
 
     private void Update()
