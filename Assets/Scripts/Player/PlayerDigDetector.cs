@@ -20,6 +20,7 @@ namespace Player
 
         public BodyPartPickup GetPickup()
         {
+            SoundManager.PlaySound("pick up body part");
             return pickup.FirstOrDefault();
         }
         

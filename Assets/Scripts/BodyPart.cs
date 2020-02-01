@@ -41,6 +41,6 @@ public class BodyPartData
 
     public void Decompose(float deltaTime)
     {
-        health -= deltaTime * parent.decompositionRate;
+        health -= deltaTime * 1;
     }
 }

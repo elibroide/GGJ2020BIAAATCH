@@ -22,7 +22,7 @@ public class BodyController : MonoBehaviour
         { BodyPartType.LegRight, null },
     };
     Action<List<BodyPartData>> OnDropParts;
-
+    public DiminishingLight light;
     public event Action<BodyPartData> DropPart;
     public event Action<BodyPartData> AddedPart;
     private GUIController _guiController;
@@ -49,7 +49,8 @@ public class BodyController : MonoBehaviour
         float delta = Time.deltaTime;
         
         var deadParts = new List<BodyPartData>();
-
+        light.UpdateSize(body[BodyPartType.Head] == null ? 0 : body[BodyPartType.Head].health / 100f);
+        Debug.Log(body[BodyPartType.Head].health);
         foreach (var part in body.Values.Where(value => value != null))
         {
             part.Decompose(delta);
