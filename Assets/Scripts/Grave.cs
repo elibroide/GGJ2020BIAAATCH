@@ -53,7 +53,7 @@ public class Grave : MonoBehaviour
     public void TakeHit(float damage)
     {
         health -= damage;
-        particles.Emit(Mathf.CeilToInt(1 + Random.value * 3));
+        // particles.Emit(Mathf.CeilToInt(1 + Random.value * 3));
         if (health <= 0) Kill();
     }
 

@@ -51,6 +51,8 @@ MonoBehaviour:
     type: 0
     parent: {fileID: 0}
   sprite: {fileID: 3849596784219154830}
+  hoverUp: 0.2
+  hoverUpDuration: 1.5
 --- !u!61 &3965323073972715588
 BoxCollider2D:
   m_ObjectHideFlags: 0
