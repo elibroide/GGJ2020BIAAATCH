@@ -41,6 +41,21 @@ public class BodyPartData
 
     public void Decompose(float deltaTime)
     {
-        health -= deltaTime * 1;
+        var decomposeRate = 1;
+        switch (type)
+        {
+            case BodyPartType.Head:
+                decomposeRate = 3;
+                break;
+            case BodyPartType.HandLeft:
+            case BodyPartType.HandRight:
+                decomposeRate = 1;
+                break;
+            case BodyPartType.LegLeft:
+            case BodyPartType.LegRight:
+                decomposeRate = 2;
+                break;
+        }
+        health -= deltaTime * decomposeRate;
     }
 }

@@ -22,12 +22,9 @@ public class BodyController : MonoBehaviour
         { BodyPartType.LegRight, null },
     };
     Action<List<BodyPartData>> OnDropParts;
-<<<<<<< HEAD
 
     public event Action AllDropped;
-=======
     public DiminishingLight light;
->>>>>>> 4fc3d19262c05e5761d513ceb32d9bff574e4b65
     public event Action<BodyPartData> DropPart;
     public event Action<BodyPartData> AddedPart;
     private GUIController _guiController;
@@ -64,31 +61,27 @@ public class BodyController : MonoBehaviour
 
         if (deadParts.Count > 0 )
         {
-            if (IsGameOver(deadParts))
+            var bodiesToDrop = new List<BodyPartData>();
+            //throw dead parts
+            foreach(var part in deadParts)
             {
-                //game over
-                AllDropped?.Invoke();
+                DropPartFromBody(part.type);
+                bodiesToDrop.Add(part);
             }
-            else
-            {
-                var bodiesToDrop = new List<BodyPartData>();
-                //throw dead parts
-                foreach(var part in deadParts)
-                {
-                    DropPartFromBody(part.type);
-                    bodiesToDrop.Add(part);
-                }
-                
-                OnDropParts?.Invoke(bodiesToDrop);
-            }
+            
+            OnDropParts?.Invoke(bodiesToDrop);
+        }
+        if (IsGameOver())
+        {
+            AllDropped?.Invoke();
         }
         
         _guiController.UpdateBodyState(body);        
     }
 
-    private bool IsGameOver(List<BodyPartData> deadParts)
+    private bool IsGameOver()
     {
-        return body.Count == 0;
+        return body.Count(elem => elem.Value != null) == 0;
     }
 
     private void DropPartFromBody(BodyPartType type)

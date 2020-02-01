@@ -1,5 +1,7 @@
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -155,45 +157,63 @@ public class WelcomeScreen : MonoBehaviour
     
     private void GoToGame()
     {
+        state = WelcomeState.Game;
         var sequence = DOTween.Sequence();
         sequence.Append(flash.DoFlash());
         sequence.InsertCallback(flash.timeToFlash, () =>
         {
             storyScreen.gameObject.SetActive(false);
             SceneManager.LoadScene("World", LoadSceneMode.Additive);
+            screenCamera.gameObject.SetActive(false);
             
             // Init stuff
-            var player = FindObjectOfType<PlayerController>();
-            player.name = nameInput.text;
-            player.characterOriginalBody = "normal";
-            
-            player.gameOver += PlayerOngameOver;
+            StartCoroutine(WaitForPlayer());
         });
+    }
+
+    private IEnumerator WaitForPlayer()
+    {
+        yield return null;
+        PlayerController player;
+        do
+        {
+            player = FindObjectOfType<PlayerController>();
+            yield return null;
+        } while (player == null);
+        player.characterName = nameInput.text;
+        player.characterOriginalBody = "normal";
+
+        Debug.Log("LOGGED TO PLAYER");
+        player.gameOver += PlayerOngameOver;
     }
 
     private void PlayerOngameOver(bool isWin)
     {
+        Debug.Log("CALLED GAME OVER " + isWin);
+        
         var sequence = DOTween.Sequence();
         sequence.Insert(0, flash.DoFlash());
-        if (isWin)
+        sequence.InsertCallback(flash.timeToFlash, () =>
         {
-            sequence.InsertCallback(flash.timeToFlash, () =>
+            var world = GameObject.Find("World");
+            if (isWin)
             {
                 var player = FindObjectOfType<PlayerController>();
                 player.view.SetState(AnimationState.IDLE);
                 player.view.SetDirection(Direction.DOWN);
                 player.view.transform.SetParent(characterWinParent);
                 player.view.transform.localPosition = Vector3.zero;
+                player.view.transform.localScale = Vector3.zero;
                 endWinScreen.gameObject.SetActive(true);
-            });
-        }
-        else
-        {
-            sequence.InsertCallback(flash.timeToFlash, () =>
+            }
+            else
             {
                 endLoseScreen.gameObject.SetActive(true);
-            });
-        }
+            }
+            Destroy(world);
+            screenCamera.gameObject.SetActive(true);
+        });
+        
     }
 
     private void Update()

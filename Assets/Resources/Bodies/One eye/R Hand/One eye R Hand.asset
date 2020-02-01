@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
+  m_Name: One eye R Hand
+  m_EditorClassIdentifier: 
+  group: eye
+  health: 100
+  decompositionRate: 0
+  type: 2
+  front: {fileID: 8464651105659911874, guid: 31f8f57fc35f43b4899d98e909f5cf93, type: 3}
+  back: {fileID: 1308792529910935034, guid: fa11d4c5b8b599e4698d7d4f56fd62a9, type: 3}
+  left: {fileID: 7964493648349091671, guid: 99db6548f29715946adff3d70e535e87, type: 3}
+  right: {fileID: 7079320625058708057, guid: fabbead55f59b67478c8a132ac74e01d, type: 3}
+  dig: {fileID: 0}
+  bodyPartPickup: {fileID: 8464651105659911874, guid: 31f8f57fc35f43b4899d98e909f5cf93,
+    type: 3}

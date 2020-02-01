@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 
+  screenCamera: {fileID: 0}
   timeToStart: 1
   timeBetweenFlashFirst: 1
   timeBetweenFlashSecond: 1
@@ -453,9 +454,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1802910709
+  m_SortingLayer: 3
+  m_SortingOrder: 32132
   m_Sprite: {fileID: 21300000, guid: 8ab571caa80f04bdfb9bb6c934701299, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -568,8 +569,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435673969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.88, y: -3.18, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.53, y: -5.27, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 17105762}
   m_RootOrder: 4
@@ -707,9 +708,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 749
+  m_SortingLayerID: 1802910709
+  m_SortingLayer: 3
+  m_SortingOrder: 1572
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -766,7 +767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &488630146
 Transform:
   m_ObjectHideFlags: 0
@@ -1551,7 +1552,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1802910709
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &1352490225
@@ -1937,9 +1938,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1802910709
+  m_SortingLayer: 3
+  m_SortingOrder: 32132
   m_Sprite: {fileID: 21300000, guid: 2cf5f6a9384db4c5ab4d267bd7e0ce80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2427,7 +2428,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 288
   m_Sprite: {fileID: 21300000, guid: 27f7dbccc456a4c0690d4b18330e3f38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2582,8 +2583,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1802910709
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 22116ddbb5c1f48649e6db42fe3d3167, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2700,7 +2701,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 288
   m_Sprite: {fileID: 21300000, guid: b466aedabd11e487d9882f6a0c3ef520, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2828,7 +2829,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2924,7 +2925,7 @@ PrefabInstance:
     - target: {fileID: 5675899842789693200, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.46
+      value: -5.54
       objectReference: {fileID: 0}
     - target: {fileID: 5675899842789693200, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
         type: 3}
@@ -2974,12 +2975,12 @@ PrefabInstance:
     - target: {fileID: 5675899842789693200, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5675899842789693200, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5675899842789693206, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
         type: 3}

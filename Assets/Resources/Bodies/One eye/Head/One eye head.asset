@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9636392ef0b9d4762a3df04cd48656d5, type: 3}
+  m_Name: One eye head
+  m_EditorClassIdentifier: 
+  group: eye
+  health: 100
+  decompositionRate: 0
+  type: 0
+  front: {fileID: 7279349703518561323, guid: 58d654757c759ab4092a32d493d0a996, type: 3}
+  back: {fileID: 1116610513953478028, guid: c107c36ad346b3c488ef56714325fd30, type: 3}
+  left: {fileID: 1370238886839465834, guid: 1faeb00fcbee3db48b51d2ad257747f6, type: 3}
+  right: {fileID: 3499116202477269915, guid: 54546a503650d7b46b8897e3c3ece818, type: 3}
+  dig: {fileID: 0}
+  bodyPartPickup: {fileID: 7279349703518561323, guid: 58d654757c759ab4092a32d493d0a996,
+    type: 3}
