@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.Networking;
 
 public enum Direction
 {
@@ -23,6 +24,15 @@ public class CharacterView: MonoBehaviour
     private Animation digAnimation;
     private Dictionary<string, AnimationClip> clips = new Dictionary<string, AnimationClip>();
     private Animation current;
+    
+    private Dictionary<BodyPartType, string> animationPathMap = new Dictionary<BodyPartType, string>
+    {
+        { BodyPartType.Head, "but/torso/head" }, 
+        { BodyPartType.HandLeft, "but/torso/LArm" }, 
+        { BodyPartType.HandRight, "but/torso/RArm" }, 
+        { BodyPartType.LegLeft, "L Pants" }, 
+        { BodyPartType.LegRight, "R Pants" }, 
+    };
 
     // Use this for initialization
     void Awake()
@@ -42,6 +52,55 @@ public class CharacterView: MonoBehaviour
 
         SetDirection(direction);
         SetState(state);
+    }
+
+    public void SetBodyPart(BodyPart part)
+    {
+        Replace("Front", part.type, part.front);
+        Replace("Back", part.type, part.back);
+        Replace("Left", part.type, part.left);
+        Replace("Right", part.type, part.right);
+        // Replace("Dig", part.type, part.dig);
+    }
+
+    public void RemovePart(BodyPartType type)
+    {
+        var path = animationPathMap[type];
+        foreach (var animationType in new[]
+        {
+            "Front",
+            "Back",
+            "Left",
+            "Right",
+        })
+        {
+            FindDeep(animationType + "/" + path).gameObject.SetActive(false);
+        }
+    }
+
+    public void Replace(string animationType, BodyPartType bodyPartType, GameObject prefab)
+    {
+        var path = animationPathMap[bodyPartType];
+        var partObject = Instantiate(prefab, transform, false);
+        var frontNewTransform = partObject.transform;
+        var frontOldTransform = FindDeep(animationType + "/" + path);
+        frontNewTransform.gameObject.name = frontOldTransform.name;
+        frontNewTransform.SetParent(frontOldTransform.parent);
+        frontNewTransform.position = frontOldTransform.position;
+        frontNewTransform.rotation = frontOldTransform.rotation;
+        frontNewTransform.localScale = frontOldTransform.localScale;
+        Destroy(frontOldTransform.gameObject);
+    }
+    
+    public Transform FindDeep(string path)
+    {
+        var pathParts = path.Split('/');
+        var currentTransform = transform;
+        foreach (var pathPart in pathParts)
+        {
+            currentTransform = currentTransform.Find(pathPart);
+        }
+        return currentTransform;
     }
 
 

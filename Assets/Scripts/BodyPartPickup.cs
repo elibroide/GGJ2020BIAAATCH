@@ -14,7 +14,7 @@ public class BodyPartPickup : MonoBehaviour
 
     void Start()
     {
-        transform.DOLocalMove(Vector3.up * hoverUp, hoverUpDuration).SetLoops(-1, LoopType.Yoyo);
+        // transform.DOLocalMove(Vector3.up * hoverUp, hoverUpDuration).SetLoops(-1, LoopType.Yoyo);
     }
 
     void Update()
@@ -36,6 +36,6 @@ public class BodyPartPickup : MonoBehaviour
     public void Init(BodyPartData createData)
     {
         data = createData;
-        sprite.sprite = createData.parent.bodyPartPickup;
+        // sprite.sprite = createData.parent.bodyPartPickup;
     }
 }

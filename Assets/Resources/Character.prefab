@@ -55,6 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab85ad6e87d544acbd8d5781f82ccc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: eli
+  characterOriginalBody: zombit
   detector: {fileID: 7297192389911539562}
   bodyController: {fileID: 0}
   view: {fileID: 8977247033082912752}
@@ -243,6 +245,96 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9086328098789999108}
     m_Modifications:
+    - target: {fileID: 539831380065501908, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -4.572
+      objectReference: {fileID: 0}
+    - target: {fileID: 539831380327186571, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539831380917901395, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 13.397
+      objectReference: {fileID: 0}
+    - target: {fileID: 539831381083586412, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 18.284
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842335410310, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842335410310, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842335410310, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842335410310, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842335410310, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842335410310, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842335410310, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842776365855, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842776365855, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842776365855, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842776365855, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842776365855, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842776365855, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675899842776365855, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 5675899842789693200, guid: 3694b4b57a24d4c73a0122a22b8fa8c5,
         type: 3}
       propertyPath: m_LocalPosition.x
