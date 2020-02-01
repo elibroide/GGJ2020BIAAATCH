@@ -56,13 +56,13 @@ namespace Player
             if (clicks == 0 || isLeft)
             {
                 isLeftClicked = true;
-                isHit = Input.GetKeyDown(KeyCode.A);
+                isHit = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow);
                 direction = Vector3.left;
             }
             if (clicks == 0 || !isLeft)
             {
                 isLeftClicked = false;
-                isHit = Input.GetKeyDown(KeyCode.D);
+                isHit = Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow);
                 direction = Vector3.right;
             }
 

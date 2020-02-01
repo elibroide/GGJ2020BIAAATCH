@@ -41,22 +41,22 @@ namespace Player
             }
             var direction = Vector2.zero;
             Direction directionState = Direction.NONE;
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 direction += Vector2.left;
                 directionState = Direction.LEFT;
             }
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 direction += Vector2.up;
                 directionState = Direction.UP;
             }
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 direction += Vector2.down;
                 directionState = Direction.DOWN;
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 direction += Vector2.right;
                 directionState = Direction.RIGHT;
