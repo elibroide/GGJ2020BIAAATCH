@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine.Networking;
 
@@ -80,11 +81,17 @@ public class CharacterView: MonoBehaviour
     
     private static void Rot(Transform target)
     {
-        var fx = target.GetComponentInChildren<SpriteRenderer>().gameObject.AddComponent<_2dxFX_DesintegrationFX>();
-        fx.Seed = UnityEngine.Random.value;
-        fx.Desintegration = 0;
-        fx._Color = Color.green;
-        DOVirtual.Float(0, 1, 2, number => fx.Desintegration = number);
+        var fxList = new List<SpriteRenderer>();
+        fxList.Add(target.GetComponent<SpriteRenderer>());
+        fxList.AddRange(target.GetComponentsInChildren<SpriteRenderer>());
+        foreach (var item in fxList.Where(single => single != null))
+        {
+            var fx = item.gameObject.AddComponent<_2dxFX_DesintegrationFX>();
+            fx.Seed = UnityEngine.Random.value;
+            fx.Desintegration = 0;
+            fx._Color = Color.green;
+            DOVirtual.Float(0, 1, 2, number => fx.Desintegration = number);    
+        }
     }
 
     public void RemovePart(BodyPart part)
