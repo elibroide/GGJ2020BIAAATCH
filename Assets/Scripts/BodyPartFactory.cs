@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -68,17 +69,41 @@ public class BodyPartFactory : MonoBehaviour
 
     public BodyPart[] parts;
     private string[] _groups;
+    private Queue<BodyPart> _bucket = new Queue<BodyPart>();
 
     private void Awake()
     {
         Instance = this;
         parts = Resources.LoadAll<BodyPart>("/");
         _groups = parts.Select(part => part.@group).Distinct().ToArray();
+        
+        _bucket = new Queue<BodyPart>();
+    }
+
+    private void FillBucket()
+    {
+        var list = new List<BodyPart>();
+        var indexes = new List<int>();
+        foreach (var part in parts)
+        {
+            var amount = part.type == BodyPartType.Body ? 1 : 5;
+            for (var i = 0; i < amount; i++)
+            {
+                list.Add(part);
+                indexes.Add(indexes.Count);
+            }
+        }
+        while (indexes.Count > 0)
+        {
+            var index = indexes[UnityEngine.Random.Range(0, indexes.Count)];
+            _bucket.Enqueue(list[index]);
+            indexes.Remove(index);
+        }
     }
 
     public string GetGroup()
     {
-        return _groups[UnityEngine.Random.Range(0, _groups.Length - 1)];
+        return _groups[UnityEngine.Random.Range(0, _groups.Length)];
     }
 
     public BodyPart[] GetBodyPartOfGroup(string type)
@@ -88,12 +113,16 @@ public class BodyPartFactory : MonoBehaviour
     
     public BodyPart GetBodyPart()
     {
-        return parts[Random.Range(0, parts.Length)];
+        if (_bucket.Count == 0)
+        {
+            FillBucket();
+        }
+        return _bucket.Dequeue();
     }
     
     public BodyPartData GetBodyPartData()
     {
-        return parts[Random.Range(0, parts.Length)].CreateData(GetName());
+        return GetBodyPart().CreateData(GetName());
     }
 
     public string GetName()

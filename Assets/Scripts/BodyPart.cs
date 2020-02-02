@@ -21,7 +21,7 @@ public class BodyPart : ScriptableObject
 
     public BodyPartData CreateData(string owner)
     {
-        var decomposeRate = 1 + UnityEngine.Random.value * 4;
+        var decomposeRate = 2 + UnityEngine.Random.value * 4;
         return new BodyPartData
         {
             decomposeRate = decomposeRate,

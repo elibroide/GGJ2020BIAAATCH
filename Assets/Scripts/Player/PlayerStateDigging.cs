@@ -80,6 +80,7 @@ namespace Player
                         
                         if (controller.digging.parent.isOpened)
                         {
+                            controller.PickUp(controller.digging.parent._bodyPart);
                             controller.digging.parent.HidePeek();
                             controller.DoneDigging();
                         } 

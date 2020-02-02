@@ -100,13 +100,6 @@ namespace Player
 
         private void CheckAction()
         {
-            if (controller.detector.GetPickup() != null)
-            {
-                // Pick that sh#@@! up
-                controller.PickUp(controller.detector.GetPickup());
-                return;
-            }
-
             if (controller.detector.GetDig() != null && !controller.detector.GetDig().parent.isOpened)
             {
                 movementController.Stop();

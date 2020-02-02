@@ -104,20 +104,19 @@ public class PlayerController : MonoBehaviour
         ChangeState(stateWalking);
     }
 
-    public void PickUp(BodyPartPickup detectorPickup)
+    public void PickUp(BodyPartData bodyPartData)
     {
-        if (detectorPickup.data.type == BodyPartType.Body)
+        if (bodyPartData.type == BodyPartType.Body)
         {
             foreach (var item in bodyController.body)
             {
                 if (item.Value != null)
                 {
-                    item.Value.health = Mathf.Min(100, item.Value.health + 30);
+                    item.Value.health = Mathf.Min(100, item.Value.health + 50);
                 }
             }
         }
-        bodyController.AddPart(detectorPickup.data.parent, detectorPickup.data.ownerName);
-        detectorPickup.PickedUp();
+        bodyController.AddPart(bodyPartData.parent, bodyPartData.ownerName);
     }
     
     private void BodyControllerOnDropPart(BodyPartData obj)

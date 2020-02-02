@@ -476,6 +476,7 @@
             <e p="PlayerStateWalking.cs" t="Include" />
           </e>
           <e p="ReadOnly.cs" t="Include" />
+          <e p="SoundManager.cs" t="Include" />
           <e p="WelcomeScreen.cs" t="Include" />
           <e p="WorldBounds.cs" t="Include" />
         </e>

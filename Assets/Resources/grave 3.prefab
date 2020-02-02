@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItems: 1
-  health: 30
+  health: 7
   isOpened: 0
   closed: {fileID: 7617607705069321516}
   opened: {fileID: 2874385818854645100}

@@ -65,9 +65,6 @@ public class Grave : MonoBehaviour
         closed.gameObject.SetActive(false);
         opened.gameObject.SetActive(true);
 
-        hiddenItem = BodyPartFactory.Instance.CreatePickup(_bodyPart);
-        hiddenItem.transform.position = drops[0].position;
-
         DOVirtual.DelayedCall(45, Refill);
     }
 
